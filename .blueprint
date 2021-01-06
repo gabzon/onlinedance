@@ -1,0 +1,40 @@
+created:
+    - app/Http/Controllers/CourseController.php
+    - app/Http/Controllers/StyleController.php
+    - app/Http/Controllers/InstructorController.php
+    - database/factories/CourseFactory.php
+    - database/factories/StyleFactory.php
+    - database/factories/InstructorFactory.php
+    - database/migrations/2021_01_05_201606_create_courses_table.php
+    - database/migrations/2021_01_05_201607_create_styles_table.php
+    - database/migrations/2021_01_05_201608_create_instructors_table.php
+    - app/Course.php
+    - app/Style.php
+    - app/Instructor.php
+    - tests/Feature/Http/Controllers/CourseControllerTest.php
+    - tests/Feature/Http/Controllers/StyleControllerTest.php
+    - tests/Feature/Http/Controllers/InstructorControllerTest.php
+    - app/Http/Requests/CourseStoreRequest.php
+    - app/Http/Requests/CourseUpdateRequest.php
+    - app/Http/Requests/StyleStoreRequest.php
+    - app/Http/Requests/StyleUpdateRequest.php
+    - app/Http/Requests/InstructorStoreRequest.php
+    - app/Http/Requests/InstructorUpdateRequest.php
+    - resources/views/course/index.blade.php
+    - resources/views/course/create.blade.php
+    - resources/views/course/show.blade.php
+    - resources/views/course/edit.blade.php
+    - resources/views/style/index.blade.php
+    - resources/views/style/create.blade.php
+    - resources/views/style/show.blade.php
+    - resources/views/style/edit.blade.php
+    - resources/views/instructor/index.blade.php
+    - resources/views/instructor/create.blade.php
+    - resources/views/instructor/show.blade.php
+    - resources/views/instructor/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    Course: { title: 'string:100', slug: 'string:130', excerpt: 'text nullable', content: 'longtext nullable', image: 'text nullable', promo_video: 'text nullable' }
+    Style: { name: 'string:100', slug: 'string:130', description: 'text nullable', image: 'text nullable', promo_video: 'text nullable' }
+    Instructor: { first_name: 'string:100', last_name: 'string:100', nickname: 'string:50 nullable', slug: 'string:130', bio: 'text nullable', img_landscape: 'text nullable', img_portrait: 'text nullable', video_interview: 'text nullable', facebook: 'string nullable', instagram: 'string nullable', twitter: 'string nullable', tiktok: 'string nullable', youtube: 'string nullable', phone: 'string nullable', email: 'string nullable' }
