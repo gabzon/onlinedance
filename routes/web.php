@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\StyleController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +19,50 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
 
-Route::resource('courses', CourseController::class);
-Route::resource('style', StyleController::class);
-Route::resource('instructor', InstructorController::class);
+Route::middleware(['auth:sanctum', 'verified', 'paidCustomer'])->get('/subscribe', function () {
+    return view('pages.subscribe',[
+        'intent' => auth()->user()->createSetupIntent(),
+    ]);
+})->name('subscribe');
+
+Route::middleware(['auth:sanctum', 'verified', 'paidCustomer'])->post('/subscribe', function (Request $request) {
+    // dd($request->all());
+    auth()->user()->newSubscription('OnlineClass', $request->plan)->create($request->paymentMethod);
+    return redirect('dashboard');
+})->name('subscribe.post');
+
+
+Route::middleware(['auth:sanctum', 'verified', 'payingCustomer'])->get('members', function () {
+    return view('pages.members');
+})->name('members');
+
+Route::middleware(['auth:sanctum', 'verified', 'payingCustomer'])->get('invoices', function () {
+    return view('pages.invoices', ['invoices' => auth()->user()->invoices()]);
+})->name('invoices');
+
+Route::resource('admin/course', CourseController::class);
+Route::resource('admin/style', StyleController::class);
+Route::resource('admin/instructor', InstructorController::class);
+
+Route::get('styles', function(){
+    return view('pages.styles');
+})->name('styles');
+
+Route::get('instructors', function(){
+    return view('pages.instructors');
+})->name('instructors');
+
+
+Route::get('/user/invoice/{invoice}', function (Request $request, $invoiceId) {
+    return $request->user()->downloadInvoice($invoiceId, [
+        'vendor' => 'Online Class',
+        'product' => 'Monthly program',
+    ]);
+});

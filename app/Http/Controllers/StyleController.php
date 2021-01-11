@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StyleStoreRequest;
 use App\Http\Requests\StyleUpdateRequest;
-use App\Style;
+use App\Models\Style;
 use Illuminate\Http\Request;
 
 class StyleController extends Controller

@@ -18,7 +18,7 @@
     <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
         <div class="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
             <div class="space-y-5 sm:space-y-4">
-                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Our Team</h2>
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Instructors</h2>
                 <p class="text-xl text-gray-500">Nulla quam felis, enim faucibus proin velit, ornare id pretium. Augue
                     ultrices sed arcu condimentum vestibulum suspendisse. Volutpat eu faucibus vivamus eget bibendum
                     cras.</p>
@@ -33,8 +33,8 @@
                                     alt="">
                             </div>
                             <div class="text-lg leading-6 font-medium space-y-1">
-                                <h3>Emma Dorsey</h3>
-                                <p class="text-indigo-600">Senior Front-end Developer</p>
+                                <h3>Ronald Castro</h3>
+                                <p class="text-indigo-600">Bachata</p>
                             </div>
                             <div class="text-lg">
                                 <p class="text-gray-500">Ultricies massa malesuada viverra cras lobortis. Tempor orci
@@ -74,8 +74,8 @@
                                     alt="">
                             </div>
                             <div class="text-lg leading-6 font-medium space-y-1">
-                                <h3>Alba y sus ardillas</h3>
-                                <p class="text-indigo-600">Senior Front-end Developer</p>
+                                <h3>Alba Sanchez</h3>
+                                <p class="text-indigo-600">Bachata</p>
                             </div>
                             <div class="text-lg">
                                 <p class="text-gray-500">Ultricies massa malesuada viverra cras lobortis. Tempor orci
@@ -115,8 +115,8 @@
                                     alt="">
                             </div>
                             <div class="text-lg leading-6 font-medium space-y-1">
-                                <h3>Alba y sus ardillas</h3>
-                                <p class="text-indigo-600">Senior Front-end Developer</p>
+                                <h3>Dario Diaz</h3>
+                                <p class="text-indigo-600">Bachata</p>
                             </div>
                             <div class="text-lg">
                                 <p class="text-gray-500">Ultricies massa malesuada viverra cras lobortis. Tempor orci
@@ -156,8 +156,8 @@
                                     alt="">
                             </div>
                             <div class="text-lg leading-6 font-medium space-y-1">
-                                <h3>Alba y sus ardillas</h3>
-                                <p class="text-indigo-600">Senior Front-end Developer</p>
+                                <h3>Sara Linaza</h3>
+                                <p class="text-indigo-600">Bachata</p>
                             </div>
                             <div class="text-lg">
                                 <p class="text-gray-500">Ultricies massa malesuada viverra cras lobortis. Tempor orci

@@ -21,7 +21,13 @@ class StyleSeeder extends Seeder
         ]);
 
         Style::create([
-            'name' => 'Salsa',
+            'name' => 'Line Salsa',
+            'slug'  => 'salsa',
+            'description' => 'from USA',            
+        ]);
+
+        Style::create([
+            'name' => 'Cuban Salsa',
             'slug'  => 'salsa',
             'description' => 'from cuba',            
         ]);
@@ -35,6 +41,12 @@ class StyleSeeder extends Seeder
         Style::create([
             'name' => 'Kizomba',
             'slug'  => 'kizomba',
+            'description' => 'from angola',            
+        ]);
+
+        Style::create([
+            'name' => 'Hip Hop',
+            'slug'  => 'hip-hop',
             'description' => 'from angola',            
         ]);
     }

@@ -46,11 +46,11 @@
             {{ __('Administration') }}
         </div>
 
-        <x-jet-dropdown-link href="{{ route('courses.index') }}">
+        <x-jet-dropdown-link href="{{ route('course.index') }}">
             {{ __('Courses') }}
         </x-jet-dropdown-link>
 
-        <x-jet-dropdown-link href="{{ route('profile.show') }}">
+        <x-jet-dropdown-link href="{{ route('style.index') }}">
             {{ __('Styles') }}
         </x-jet-dropdown-link>
 

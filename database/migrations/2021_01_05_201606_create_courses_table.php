@@ -24,6 +24,8 @@ class CreateCoursesTable extends Migration
             $table->text('playlist')->nullable();
             $table->string('level')->nullable();
             $table->boolean('premium')->default(true);
+            $table->text('facebook_pixel')->nullable();
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }

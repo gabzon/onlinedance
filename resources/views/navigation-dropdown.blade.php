@@ -12,15 +12,34 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('styles')">
+                    @auth
+                    @if (!auth()->user()->subscribed('OnlineClass'))
+                    <x-jet-nav-link href="{{ route('subscribe') }}" :active="request()->routeIs('subscribe')">
+                        {{ __('Subscribe') }}
+                    </x-jet-nav-link>
+                    @endif
+                    @if (auth()->user()->subscribed('OnlineClass'))
+                    <x-jet-nav-link href="{{ route('members') }}" :active="request()->routeIs('members')">
+                        {{ __('Members') }}
+                    </x-jet-nav-link>
+                    @endif
+
+                    <x-jet-nav-link href="{{ route('invoices') }}" :active="request()->routeIs('invoices')">
+                        {{ __('Invoices') }}
+                    </x-jet-nav-link>
+                    @endauth
+                    @if (request()->routeIs('welcome'))
+                    <x-jet-nav-link href="#style" :active="request()->routeIs('styles')">
                         {{ __('Styles') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="#instructors" :active="request()->routeIs('instructors')">
                         {{ __('Instructors') }}
                     </x-jet-nav-link>
+                    @endif
                     @guest
                     <x-jet-nav-link href="#pricing" :active="request()->routeIs('instructors')">
                         {{ __('Pricing') }}
