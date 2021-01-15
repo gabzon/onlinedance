@@ -12,8 +12,7 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        \App\Models\User::factory(10)->create();
+    {        
         $this->call([
             //RoleSeeder::class,
             TeamSeeder::class,
@@ -21,5 +20,7 @@ class DatabaseSeeder extends Seeder
             CourseSeeder::class,
             ]
         );
+        
+        \App\Models\User::factory(10)->create();
     }
 }

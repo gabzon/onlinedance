@@ -56,7 +56,9 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
-        @livewire('navigation-dropdown')
+        <div class="{{ env('SCHOOL_NAME') == 'dancefloor' ? 'dark': ''}}">
+            @livewire('navigation-dropdown')
+        </div>
 
         <!-- Page Heading -->
         <header class="bg-white shadow">

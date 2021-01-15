@@ -26,6 +26,7 @@ class CreateCoursesTable extends Migration
             $table->boolean('premium')->default(true);
             $table->text('facebook_pixel')->nullable();
             $table->string('type')->nullable();
+            $table->time('duration')->nullable();
             $table->timestamps();
         });
     }

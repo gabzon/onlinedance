@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\StyleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified','subscribeIfNotSubscribed'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
@@ -32,9 +33,12 @@ Route::middleware(['auth:sanctum', 'verified', 'paidCustomer'])->get('/subscribe
     ]);
 })->name('subscribe');
 
-Route::middleware(['auth:sanctum', 'verified', 'paidCustomer'])->post('/subscribe', function (Request $request) {
-    // dd($request->all());
-    auth()->user()->newSubscription('OnlineClass', $request->plan)->create($request->paymentMethod);
+Route::middleware(['auth:sanctum', 'verified', 'paidCustomer'])->post('/subscribe', function (Request $request) {    
+    auth()->user()->newSubscription('OnlineClass', $request->plan)
+                    ->trialDays(1)
+                    ->create($request->paymentMethod, [
+                        'metadata' => ['note' => 'Monthly access'],
+                    ]);
     return redirect('dashboard');
 })->name('subscribe.post');
 
@@ -50,6 +54,9 @@ Route::middleware(['auth:sanctum', 'verified', 'payingCustomer'])->get('invoices
 Route::resource('admin/course', CourseController::class);
 Route::resource('admin/style', StyleController::class);
 Route::resource('admin/instructor', InstructorController::class);
+Route::resource('admin/user', UserController::class);
+
+
 
 Route::get('styles', function(){
     return view('pages.styles');

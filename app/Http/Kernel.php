@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'payingCustomer' => \App\Http\Middleware\PayingCustomer::class,
         'paidCustomer' => \App\Http\Middleware\RedirectIfPaid::class,
+        'subscribeIfNotSubscribed' => \App\Http\Middleware\subscribeIfNotSubscribed::class,
     ];
 }

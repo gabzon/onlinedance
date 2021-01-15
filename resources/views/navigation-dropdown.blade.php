@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 dark:bg-gray-800">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -22,15 +22,15 @@
                         {{ __('Subscribe') }}
                     </x-jet-nav-link>
                     @endif
-                    @if (auth()->user()->subscribed('OnlineClass'))
+                    {{-- @if (auth()->user()->subscribed('OnlineClass'))
                     <x-jet-nav-link href="{{ route('members') }}" :active="request()->routeIs('members')">
-                        {{ __('Members') }}
+                    {{ __('Members') }}
                     </x-jet-nav-link>
-                    @endif
-
+                    @endif --}}
+                    {{-- 
                     <x-jet-nav-link href="{{ route('invoices') }}" :active="request()->routeIs('invoices')">
-                        {{ __('Invoices') }}
-                    </x-jet-nav-link>
+                    {{ __('Invoices') }}
+                    </x-jet-nav-link> --}}
                     @endauth
                     @if (request()->routeIs('welcome'))
                     <x-jet-nav-link href="#style" :active="request()->routeIs('styles')">

@@ -19,6 +19,14 @@ class TeamSeeder extends Seeder
             'name'              => 'Gabriel Zambrano',
             'email'             => 'gab.zambrano@gmail.com',
             'password'          => Hash::make('password'),
+            'role'              => 'admin',
+            'email_verified_at' => now()
+        ]);
+
+        User::firstOrCreate([
+            'name'              => 'Pedro Gomez',
+            'email'             => 'pedro@gomez.com',
+            'password'          => Hash::make('password'),            
             'email_verified_at' => now()
         ]);
     }

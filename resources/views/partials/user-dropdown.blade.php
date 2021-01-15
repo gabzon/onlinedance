@@ -32,14 +32,15 @@
             {{ __('Profile') }}
         </x-jet-dropdown-link>
 
-        <x-jet-dropdown-link href="{{ route('profile.show') }}">
-            {{ __('Favorites') }}
+        {{-- <x-jet-dropdown-link href="{{ route('profile.show') }}">
+        {{ __('Favorites') }}
         </x-jet-dropdown-link>
 
         <x-jet-dropdown-link href="{{ route('profile.show') }}">
             {{ __('Settings') }}
-        </x-jet-dropdown-link>
+        </x-jet-dropdown-link> --}}
 
+        @if (auth()->user()->isAdmin())
         <div class="border-t border-gray-100"></div>
 
         <div class="block px-4 py-2 text-xs text-gray-400">
@@ -58,7 +59,7 @@
             {{ __('Instructors') }}
         </x-jet-dropdown-link>
 
-        <x-jet-dropdown-link href="{{ route('profile.show') }}">
+        <x-jet-dropdown-link href="{{ route('user.index') }}">
             {{ __('Users') }}
         </x-jet-dropdown-link>
 
@@ -71,6 +72,8 @@
             {{ __('API Tokens') }}
         </x-jet-dropdown-link>
         @endif
+        @endif
+
 
         <div class="border-t border-gray-100"></div>
 

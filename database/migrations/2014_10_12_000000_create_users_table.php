@@ -23,9 +23,10 @@ class CreateUsersTable extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
             $table->date('birthday')->nullable();
-            $table->text('biography')->nullable();
+            $table->text('bio')->nullable();
             $table->enum('gender',['male','female'])->nullable(); 
             $table->string('phone')->nullable(); 
+            $table->string('role')->default('user');
             $table->timestamps();
         });
     }

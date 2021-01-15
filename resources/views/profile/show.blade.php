@@ -8,25 +8,46 @@
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
-                @livewire('profile.update-profile-information-form')
+            @livewire('profile.update-profile-information-form')
 
-                <x-jet-section-border />
+            <x-jet-section-border />
             @endif
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.update-password-form')
-                </div>
+            <div class="mt-10 sm:mt-0">
+                @livewire('profile.update-password-form')
+            </div>
 
-                <x-jet-section-border />
+            <x-jet-section-border />
             @endif
 
-            @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.two-factor-authentication-form')
-                </div>
 
-                <x-jet-section-border />
+            <div class="mt-10 sm:mt-0">
+                <livewire:profile.default-info />
+            </div>
+
+            <x-jet-section-border />
+
+            <div class="mt-10 sm:mt-0">
+                <livewire:profile.subscription-plan />
+            </div>
+
+            <x-jet-section-border />
+
+
+            <div class="mt-10 sm:mt-0">
+                <x-profile.billing-history />
+            </div>
+
+            <x-jet-section-border />
+
+
+            @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
+            <div class="mt-10 sm:mt-0">
+                @livewire('profile.two-factor-authentication-form')
+            </div>
+
+            <x-jet-section-border />
             @endif
 
             <div class="mt-10 sm:mt-0">
