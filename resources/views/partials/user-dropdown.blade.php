@@ -55,7 +55,7 @@
             {{ __('Styles') }}
         </x-jet-dropdown-link>
 
-        <x-jet-dropdown-link href="{{ route('profile.show') }}">
+        <x-jet-dropdown-link href="{{ route('instructor.index') }}">
             {{ __('Instructors') }}
         </x-jet-dropdown-link>
 
@@ -65,6 +65,10 @@
 
         <x-jet-dropdown-link href="{{ route('profile.show') }}">
             {{ __('Roles & Permissions') }}
+        </x-jet-dropdown-link>
+
+        <x-jet-dropdown-link href="{{ route('setting.index') }}">
+            {{ __('Settings') }}
         </x-jet-dropdown-link>
 
         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

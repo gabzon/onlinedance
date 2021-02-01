@@ -18,8 +18,9 @@ class CreateStylesTable extends Migration
             $table->string('name', 100);
             $table->string('slug', 130);
             $table->text('description')->nullable();
-            $table->text('image')->nullable();
-            $table->text('promo_video')->nullable();
+            $table->text('portrait')->nullable();
+            $table->text('thumbnail')->nullable();
+            $table->text('video')->nullable();
             $table->timestamps();
         });
     }

@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Style extends Model
 {
     use HasFactory;
-
+    use Sluggable;
     /**
      * The attributes that are mass assignable.
      *
@@ -18,8 +19,9 @@ class Style extends Model
         'name',
         'slug',
         'description',
-        'image',
-        'promo_video',
+        'thumbnail',
+        'portrait',
+        'video',
     ];
 
     /**
@@ -30,4 +32,28 @@ class Style extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class);
+    }
+
+    public function instructors()
+    {
+        return $this->belongsToMany(Instructor::class);
+    }
+
+    public function hasCourse($id)
+    {
+        return in_array($id, $this->courses()->pluck('course_id')->toArray());
+    }
 }

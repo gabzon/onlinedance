@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\InstructorStoreRequest;
 use App\Http\Requests\InstructorUpdateRequest;
-use App\Instructor;
+use App\Models\Instructor;
 use Illuminate\Http\Request;
 
 class InstructorController extends Controller
@@ -50,6 +50,12 @@ class InstructorController extends Controller
     public function show(Request $request, Instructor $instructor)
     {
         return view('instructor.show', compact('instructor'));
+    }
+
+
+    public function view(Request $request, Instructor $instructor)
+    {
+        return view('instructor.view', compact('instructor'));
     }
 
     /**

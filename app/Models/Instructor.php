@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Instructor extends Model
 {
     use HasFactory;
+    use Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -20,9 +23,12 @@ class Instructor extends Model
         'nickname',
         'slug',
         'bio',
-        'img_landscape',
-        'img_portrait',
-        'video_interview',
+        'image',
+        'thumbnail',
+        'portrait',
+        'birthday',
+        'beginning',
+        'video',
         'facebook',
         'instagram',
         'twitter',
@@ -30,6 +36,7 @@ class Instructor extends Model
         'youtube',
         'phone',
         'email',
+        'origin',
     ];
 
     /**
@@ -40,4 +47,31 @@ class Instructor extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    public function styles()
+    {
+        return $this->belongsToMany(Style::class);
+    }
+
+    public function hasStyle($id)
+    {
+        return in_array($id, $this->styles()->pluck('style_id')->toArray());
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => ['first_name', 'last_name']
+            ]
+        ];
+    }
+
+    public function getAgeAttribute()
+    {        
+        return Carbon::parse($this->birthday)->age;        
+    }
 }
+
+
+

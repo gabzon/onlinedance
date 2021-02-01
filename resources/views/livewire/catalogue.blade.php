@@ -3,7 +3,7 @@
         <div>
             <label for="style" class="block text-sm font-medium text-gray-700">Style</label>
             <select wire:model="style"
-                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                 <option value="">All Styles</option>
                 <option value="1">Bachata</option>
                 <option value="1">Salsa</option>
@@ -15,7 +15,7 @@
         <div>
             <label for="level" class="block text-sm font-medium text-gray-700">Level</label>
             <select wire:model="level"
-                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                 <option value="">All levels</option>
                 <option value="beginner">Beginner</option>
                 <option value="intermediate">Intermediate</option>
@@ -28,7 +28,7 @@
         <div>
             <label for="type" class="block text-sm font-medium text-gray-700">Type</label>
             <select wire:model="type"
-                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                 <option value="">All types</option>
                 <option value="lady-styling">Lady styling</option>
                 <option value="men-styling">Men styling</option>
@@ -55,7 +55,7 @@
                     </p>
                     <div class="flex justify-between">
                         <span
-                            class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                            class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                             {{ $course->level }}
                         </span>
                         <div class="inline-flex items-center text-gray-600">

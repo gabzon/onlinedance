@@ -2,10 +2,12 @@
 
 namespace App\View\Components\Partials;
 
+use App\Models\Instructor;
 use Illuminate\View\Component;
 
 class Instructors extends Component
 {
+    public $instructors;
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,7 @@ class Instructors extends Component
      */
     public function __construct()
     {
-        //
+        $this->instructors = Instructor::all();
     }
 
     /**

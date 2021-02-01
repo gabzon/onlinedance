@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 class Course extends Model
 {
     use HasFactory;
+    use Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -20,9 +22,23 @@ class Course extends Model
         'slug',
         'excerpt',
         'content',
-        'image',
-        'promo_video',
+        'portrait',
+        'thumbnail',
+        'banner_image',
+        'video',
+        'playlist',
+        'level',
+        'premium',
+        'type',
+        'duration',
+        'order',
+        'facebook_pixel',
     ];
+
+
+
+
+
 
     /**
      * The attributes that should be cast to native types.
@@ -36,6 +52,11 @@ class Course extends Model
     public function styles()
     {
         return $this->belongsToMany(Style::class);
+    }
+
+    public function instructors()
+    {
+        return $this->belongsToMany(Instructor::class);
     }
 
     public function hasStyle($id)
@@ -67,5 +88,14 @@ class Course extends Model
             });
         }
         return $query;
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }

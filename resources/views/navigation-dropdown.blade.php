@@ -13,11 +13,11 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 
+                    @auth
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    @auth
-                    @if (!auth()->user()->subscribed('OnlineClass'))
+                    @if (!auth()->user()->subscribed('OnlineClass') && !auth()->user()->hasAccess())
                     <x-jet-nav-link href="{{ route('subscribe') }}" :active="request()->routeIs('subscribe')">
                         {{ __('Subscribe') }}
                     </x-jet-nav-link>
@@ -33,7 +33,7 @@
                     </x-jet-nav-link> --}}
                     @endauth
                     @if (request()->routeIs('welcome'))
-                    <x-jet-nav-link href="#style" :active="request()->routeIs('styles')">
+                    <x-jet-nav-link href="#styles" :active="request()->routeIs('styles')">
                         {{ __('Styles') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="#instructors" :active="request()->routeIs('instructors')">

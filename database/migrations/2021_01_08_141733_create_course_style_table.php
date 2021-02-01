@@ -18,7 +18,7 @@ class CreateCourseStyleTable extends Migration
             $table->unique(['course_id','style_id']);
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('style_id');
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');;
             $table->foreign('style_id')->references('id')->on('styles');
             $table->timestamps();
         });

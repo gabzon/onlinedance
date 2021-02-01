@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\InstructorController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StyleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::middleware(['auth:sanctum', 'verified','subscribeIfNotSubscribed'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified','verifyHasAccess'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
@@ -47,15 +48,17 @@ Route::middleware(['auth:sanctum', 'verified', 'payingCustomer'])->get('members'
     return view('pages.members');
 })->name('members');
 
+Route::middleware(['auth:sanctum', 'verified'])->group(function(){    
+    Route::resource('admin/setting', SettingController::class);
+    Route::resource('admin/course', CourseController::class);
+    Route::resource('admin/style', StyleController::class);
+    Route::resource('admin/instructor', InstructorController::class);
+    Route::resource('admin/user', UserController::class);
+});
+
 Route::middleware(['auth:sanctum', 'verified', 'payingCustomer'])->get('invoices', function () {
     return view('pages.invoices', ['invoices' => auth()->user()->invoices()]);
 })->name('invoices');
-
-Route::resource('admin/course', CourseController::class);
-Route::resource('admin/style', StyleController::class);
-Route::resource('admin/instructor', InstructorController::class);
-Route::resource('admin/user', UserController::class);
-
 
 
 Route::get('styles', function(){

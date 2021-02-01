@@ -20,9 +20,13 @@ class CreateInstructorsTable extends Migration
             $table->string('nickname', 50)->nullable();
             $table->string('slug', 130);
             $table->text('bio')->nullable();
-            $table->text('img_landscape')->nullable();
-            $table->text('img_portrait')->nullable();
-            $table->text('video_interview')->nullable();
+            $table->text('image')->nullable();
+            $table->text('thumbnail')->nullable();
+            $table->text('portrait')->nullable();
+            $table->text('video')->nullable();
+            $table->date('birthday')->nullable();
+            $table->date('beginning')->nullable();
+            $table->string('origin')->nullable();            
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('twitter')->nullable();

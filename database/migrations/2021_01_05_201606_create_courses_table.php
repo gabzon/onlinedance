@@ -19,7 +19,9 @@ class CreateCoursesTable extends Migration
             $table->string('slug', 130);
             $table->text('excerpt')->nullable();
             $table->longText('content')->nullable();
-            $table->text('image')->nullable();
+            $table->string('portrait')->nullable();
+            $table->string('thumbnail')->nullable();
+            $table->string('banner_image')->nullable();
             $table->text('video')->nullable();
             $table->text('playlist')->nullable();
             $table->string('level')->nullable();
@@ -27,6 +29,7 @@ class CreateCoursesTable extends Migration
             $table->text('facebook_pixel')->nullable();
             $table->string('type')->nullable();
             $table->time('duration')->nullable();
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

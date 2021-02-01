@@ -28,6 +28,7 @@
 
             <x-jet-section-border />
 
+            @if (auth()->user()->subscribed('OnlineClass'))
             <div class="mt-10 sm:mt-0">
                 <livewire:profile.subscription-plan />
             </div>
@@ -40,7 +41,7 @@
             </div>
 
             <x-jet-section-border />
-
+            @endif
 
             @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
             <div class="mt-10 sm:mt-0">

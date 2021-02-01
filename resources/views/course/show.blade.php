@@ -1,8 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ $course->title }}
-        </h2>
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight leading-6">
+                {{ $course->title }}
+            </h2>
+            <div class="mt-3 sm:mt-0 sm:ml-4">
+                @if (auth()->user()->isAdmin())
+                <a href="{{ route('course.edit', $course) }}"
+                    class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Edit Course
+                </a>
+                @endif
+            </div>
+        </div>
     </x-slot>
 
     @if (!auth()->user()->subscribed('OnlineClass'))
@@ -63,9 +73,9 @@
             </div>
 
             <div class="flex justify-between">
-
-
-
+                <div class="h-96">
+                    <img src="{{ asset($course->thumbnail ) }}" alt="" class="w-full bg-cover">
+                </div>
 
             </div>
             <p class="my-5">

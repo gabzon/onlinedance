@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             TeamSeeder::class,
             StyleSeeder::class,
             CourseSeeder::class,
+            InstructorSeeder::class,
             ]
         );
         

@@ -29,5 +29,6 @@ class TeamSeeder extends Seeder
             'password'          => Hash::make('password'),            
             'email_verified_at' => now()
         ]);
+
     }
 }

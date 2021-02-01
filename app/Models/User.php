@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -67,9 +68,18 @@ class User extends Authenticatable
         return $this->role == 'admin';
     }
 
+    public function hasAccess()
+    {
+        return $this->role == 'admin' || $this->role == 'vip';
+    }
+
     public function getIsActiveAttribute()
     {
         return $this->subscribed('OnlineClass');
     }
-    
+
+    public function getAgeAttribute()
+    {        
+        return Carbon::parse($this->birthday)->age;        
+    }   
 }

@@ -4,18 +4,31 @@ namespace App\Http\Livewire\Course;
 
 use App\Models\Course;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Datagrid extends Component
 {
-    public $courses;
+    use WithPagination;
 
-    public function mount()
+    public $search;
+
+    public function updatingSearch()
     {
-        $this->courses = Course::all();
+        $this->resetPage();
+    }
+
+    public function delete($cid)
+    {        
+        $course =  Course::findOrFail($cid);
+        $course->delete();
+        session()->flash('success', 'Course deleted successfully');
+        return redirect()->route('course.index');
     }
 
     public function render()
     {
-        return view('livewire.course.datagrid');
+        return view('livewire.course.datagrid', [
+            'courses' => Course::where('title','LIKE', "%{$this->search}%")->paginate(10)
+        ]);
     }
 }
