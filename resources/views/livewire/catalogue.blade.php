@@ -1,9 +1,9 @@
 <section id="catalogue" class="mx-3 sm:mx-0">
     <div id="filters" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
         <div>
-            <label for="style" class="block text-sm font-medium text-gray-700">Style</label>
+            <label for="style" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Style</label>
             <select wire:model="style"
-                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600">
                 <option value="">All Styles</option>
                 <option value="1">Bachata</option>
                 <option value="1">Salsa</option>
@@ -40,34 +40,7 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 -mx-4">
         @forelse ($courses as $course)
-
-        <a href="{{ route('course.show', $course) }}">
-            <div class="bg-white mx-4 rounded-3xl shadow-sm hover:shadow-2xl overflow-hidden mb-3">
-                <div class="rounded-t-3xl">
-                    <img src="{{ $course->image }}" alt="">
-                </div>
-                <div class="px-4 py-4">
-                    <h3 class="text-xl font-semibold text-gray-700">
-                        {{ $course->title }}
-                    </h3>
-                    <p class="text-sm text-gray-500 my-2">
-                        {{ $course->excerpt }}
-                    </p>
-                    <div class="flex justify-between">
-                        <span
-                            class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                            {{ $course->level }}
-                        </span>
-                        <div class="inline-flex items-center text-gray-600">
-                            @include('icons.clock')
-                            <span class="text-sm ml-2 font-semibold ">{{ rtrim($course->duration,':00') }}</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </a>
-
+        <livewire:course-card :course="$course" />
         @empty
         <div> no courses available</div>
         @endforelse

@@ -53,6 +53,7 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
+{{-- {{ config('settings.theme_mode') == 1 ? 'dark':''}}" --}}
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">

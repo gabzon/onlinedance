@@ -17,6 +17,8 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('title', 100);
             $table->string('slug', 130);
+            $table->string('tagline')->nullable();
+            $table->string('tags')->nullable();
             $table->text('excerpt')->nullable();
             $table->longText('content')->nullable();
             $table->string('portrait')->nullable();

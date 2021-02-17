@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Livewire;
-
-use App\Models\Course;
 use Livewire\Component;
+use App\Models\Course;
 
 class Catalogue extends Component
 {

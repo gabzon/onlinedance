@@ -6,6 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class Course extends Model
 {
@@ -90,6 +91,16 @@ class Course extends Model
         return $query;
     }
 
+    public function favorited()
+    {        
+        return (bool) Favorite::where('user_id', Auth::id())->where('course_id', $this->id)->first();
+    }
+
+    public function bookmarked()
+    {        
+        return (bool) Todo::where('user_id', Auth::id())->where('course_id', $this->id)->first();
+    }
+
     public function sluggable(): array
     {
         return [
@@ -97,5 +108,6 @@ class Course extends Model
                 'source' => 'title'
             ]
         ];
-    }
+    }        
 }
+

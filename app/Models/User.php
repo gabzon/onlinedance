@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
+use Laravel\Cashier\Order\Contracts\ProvidesInvoiceInformation;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements ProvidesInvoiceInformation
 {
     use Billable;
     use HasApiTokens;
@@ -30,6 +31,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'birthday',
+        'bio',
+        'gender',
+        'phone',
+        'role',
     ];
 
     /**
@@ -70,7 +76,7 @@ class User extends Authenticatable
 
     public function hasAccess()
     {
-        return $this->role == 'admin' || $this->role == 'vip';
+        return $this->role == 'admin' || $this->role == 'guest';
     }
 
     public function getIsActiveAttribute()
@@ -79,7 +85,38 @@ class User extends Authenticatable
     }
 
     public function getAgeAttribute()
-    {        
-        return Carbon::parse($this->birthday)->age;        
-    }   
+    {
+        return Carbon::parse($this->birthday)->age;
+    }
+
+    public function favorites()
+    {
+        return $this->belongsToMany(Course::class, 'favorites', 'user_id', 'course_id')->withTimeStamps();
+    }
+
+    public function todos()
+    {
+        return $this->belongsToMany(Course::class, 'todos', 'user_id', 'course_id')->withTimeStamps();
+    }
+
+    /**
+     * Get the receiver information for the invoice.
+     * Typically includes the name and some sort of (E-mail/physical) address.
+     *
+     * @return array An array of strings
+     */
+    public function getInvoiceInformation()
+    {
+        return [$this->name, $this->email];
+    }
+
+    /**
+     * Get additional information to be displayed on the invoice. Typically a note provided by the customer.
+     *
+     * @return string|null
+     */
+    public function getExtraBillingInformation()
+    {
+        return null;
+    }
 }

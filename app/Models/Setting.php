@@ -24,5 +24,15 @@ class Setting extends Model
         'snapchat',
         'terms',
         'privacy',
+        'faq',
+        'landing_hero',
+        'dashboard_hero',
+        'monthly_price',
+        'yearly_price',
+        'plan_name',
+        'trail_days',
+        'payment_gateway',
+        'currency',
     ];
 }
+

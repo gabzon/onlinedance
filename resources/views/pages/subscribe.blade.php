@@ -10,7 +10,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <section class="p-8">
-                    <x-payments.stripe intent="{{ $intent->client_secret }}" />
+                    {{-- <x-payments.stripe intent="{{ $intent->client_secret }}" /> --}}
+                    <x-payments.mollie />
                 </section>
             </div>
         </div>

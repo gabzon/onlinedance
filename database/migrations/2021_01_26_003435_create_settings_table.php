@@ -29,6 +29,15 @@ class CreateSettingsTable extends Migration
             $table->string('snapchat')->nullable();
             $table->longtext('terms')->nullable();
             $table->longtext('privacy')->nullable();
+            $table->string('plan_name')->nullable();
+            $table->string('payment_gateway')->nullable();
+            $table->float('monthly_price')->nullable();
+            $table->float('yearly_price')->nullable();
+            $table->integer('trail_days')->nullable();
+            $table->string('currency')->nullable();
+            $table->longtext('faq')->nullable();
+            $table->text('landing_hero')->nullable();
+            $table->text('dashboard_hero')->nullable();
             $table->timestamps();
         });
     }

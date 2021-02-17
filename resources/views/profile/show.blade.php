@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-">
             {{ __('Profile') }}
         </h2>
     </x-slot>
@@ -23,25 +23,11 @@
 
 
             <div class="mt-10 sm:mt-0">
-                <livewire:profile.default-info />
+                <livewire:profile.default-info :user="auth()->user()" />
             </div>
 
             <x-jet-section-border />
 
-            @if (auth()->user()->subscribed('OnlineClass'))
-            <div class="mt-10 sm:mt-0">
-                <livewire:profile.subscription-plan />
-            </div>
-
-            <x-jet-section-border />
-
-
-            <div class="mt-10 sm:mt-0">
-                <x-profile.billing-history />
-            </div>
-
-            <x-jet-section-border />
-            @endif
 
             @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
             <div class="mt-10 sm:mt-0">
