@@ -21,6 +21,8 @@ class Course extends Model
     protected $fillable = [
         'title',
         'slug',
+        'tagline',
+        'tags',
         'excerpt',
         'content',
         'portrait',
@@ -30,15 +32,12 @@ class Course extends Model
         'playlist',
         'level',
         'premium',
+        'is_live',
         'type',
         'duration',
         'order',
         'facebook_pixel',
     ];
-
-
-
-
 
 
     /**
@@ -54,16 +53,22 @@ class Course extends Model
     {
         return $this->belongsToMany(Style::class);
     }
+    
+    public function hasStyle($id)
+    {
+        return in_array($id, $this->styles()->pluck('style_id')->toArray());
+    }
 
     public function instructors()
     {
         return $this->belongsToMany(Instructor::class);
     }
 
-    public function hasStyle($id)
+    public function hasInstructor($id)
     {
-        return in_array($id, $this->styles()->pluck('style_id')->toArray());
+        return in_array($id, $this->instructors()->pluck('instructor_id')->toArray());
     }
+
 
     public function scopeLevel($query, $level)
     {

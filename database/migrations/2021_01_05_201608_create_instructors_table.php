@@ -21,7 +21,7 @@ class CreateInstructorsTable extends Migration
             $table->string('slug', 130);
             $table->text('bio')->nullable();
             $table->text('image')->nullable();
-            $table->text('thumbnail')->nullable();
+            $table->text('avatar')->nullable();
             $table->text('portrait')->nullable();
             $table->text('video')->nullable();
             $table->date('birthday')->nullable();

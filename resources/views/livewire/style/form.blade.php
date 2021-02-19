@@ -27,7 +27,7 @@
                                     class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-100">
                             </div>
 
-                            <div class="sm:col-span-6">
+                            <div class="col-span-6">
                                 <label for="description" class="block text-sm font-medium text-gray-700">
                                     Description
                                 </label>
@@ -38,7 +38,7 @@
                                 <p class="mt-2 text-sm text-gray-500">Write a full description.</p>
                             </div>
 
-                            <div class="sm:col-span-6">
+                            <div class="col-span-6">
                                 <label for="video" class="block text-sm font-medium text-gray-700">
                                     Video
                                 </label>
@@ -47,6 +47,19 @@
                                         class="shadow-sm focus:ring-blue-600 focus:border-blue-600 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
                                 </div>
                                 <p class="mt-2 text-sm text-gray-500">Paste the embed code here from Youtube/Vimeo</p>
+                            </div>
+
+                            <div class="col-span-6" wire:ignore>
+                                <label for="instructors"
+                                    class="block text-sm font-medium text-gray-700">Instructors</label>
+                                <select id="instructors" wire:model="instructors" class="w-full" multiple>
+                                    @foreach (\App\Models\Instructor::all() as $instructor)
+                                    <option value="{{ $instructor->id }}" @isset($style)
+                                        {{ $style->hasInstructor($instructor->id) ? 'selected' : ''}} @endisset>
+                                        {{ $instructor->first_name}} {{ $instructor->last_name }}
+                                    </option>
+                                    @endforeach
+                                </select>
                             </div>
 
                         </div>
@@ -92,4 +105,15 @@
             </form>
         </div>
     </div>
+    @push('scripts')
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script>
+        $("#instructors").select2();
+        $('#instructors').on('change', function(){
+            @this.instructors = $(this).val()
+        });
+    </script>
+    @endpush
 </div>

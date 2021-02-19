@@ -24,7 +24,7 @@ class Datagrid extends Component
         
         session()->flash('success', 'Instructor deleted successfully');
         
-        return redirect()->route('course.index');
+        return redirect()->route('instructor.index');
     }
 
     public function render()

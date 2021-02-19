@@ -18,7 +18,7 @@
                                 <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
                                     <div class="flex">
                                         <img class="h-24 w-24 rounded-full ring-4 ring-white sm:h-36 sm:w-36"
-                                            src="{{ asset($instructor->thumbnail )}}" alt="">
+                                            src="{{ asset($instructor->avatar )}}" alt="">
                                     </div>
                                     <div
                                         class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
@@ -184,36 +184,51 @@
                                     <dd class="mt-1 text-sm text-gray-900 flex items-center">
                                         @if ($instructor->facebook)
                                         <a href="{{ $instructor->facebook }}"
-                                            class="text-gray-700 hover:text-blue-700 mr-2">
+                                            class="text-gray-500 hover:text-blue-700 mr-2">
                                             @include('icons.facebook')
                                         </a>
                                         @endif
 
                                         @if ($instructor->instagram)
                                         <a href="{{ $instructor->instagram }}"
-                                            class="text-gray-700 hover:text-blue-700 mr-2">
+                                            class="text-gray-500 hover:text-blue-700 mr-2">
                                             @include('icons.instagram')
                                         </a>
                                         @endif
 
                                         @if ($instructor->twitter)
                                         <a href="{{ $instructor->twitter }}"
-                                            class="text-gray-700 hover:text-blue-700 mr-2">
+                                            class="text-gray-500 hover:text-blue-700 mr-2">
                                             @include('icons.twitter')
                                         </a>
                                         @endif
                                         @if ($instructor->youtube)
                                         <a href="{{ $instructor->youtube }}"
-                                            class="text-gray-700 hover:text-blue-700 mr-2">
+                                            class="text-gray-500 hover:text-blue-700 mr-2">
                                             @include('icons.youtube')
                                         </a>
                                         @endif
                                         @if ($instructor->tiktok)
                                         <a href="{{ $instructor->tiktok }}"
-                                            class="text-gray-700 hover:text-blue-700 mr-2">
+                                            class="text-gray-500 hover:text-blue-700 mr-2">
                                             tiktok
                                         </a>
                                         @endif
+                                    </dd>
+                                </div>
+
+                                <div class="sm:col-span-1">
+                                    <dt class="text-sm font-medium text-gray-500">
+                                        Styles
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 flex items-center">
+                                        @foreach ($instructor->styles as $s)
+                                        @if (!$loop->last)
+                                        {{ $s->name }},
+                                        @else
+                                        {{ $s->name }}
+                                        @endif
+                                        @endforeach
                                     </dd>
                                 </div>
                             </dl>

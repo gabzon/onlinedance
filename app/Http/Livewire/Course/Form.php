@@ -13,14 +13,17 @@ class Form extends Component
     public $course;
     public $action;
 
-    public $title;
+    public $title;    
     public $slug;
+    public $tagline;
+    public $tags;
     public $excerpt;
     public $content;
     public $video;
     public $playlist;
     public $level;
     public $premium;
+    public $live;
     public $facebook_pixel;
     public $type;
     public $duration;
@@ -29,6 +32,8 @@ class Form extends Component
     public $portrait;
     public $thumbnailTemp;
     public $portraitTemp;
+    public $instructors;
+    public $styles;
     
     public function add()
     {
@@ -36,14 +41,17 @@ class Form extends Component
             'title'     => 'required',
         ]);
 
-        Course::create([
+        $course = Course::create([
             'title'     => $this->title,
+            'tagline'   => $this->tagline,
+            'tags'      => $this->tags,
             'excerpt'   => $this->excerpt,
             'content'   => $this->content,
             'video'     => $this->video,
             'playlist'  => $this->playlist,
             'level'     => $this->level,
             'premium'   => $this->premium ?? 0,
+            'is_live'   => $this->live ?? 0,
             'type'      => $this->type,
             'duration'  => $this->duration,
             'order'     => $this->order,
@@ -51,6 +59,9 @@ class Form extends Component
             'portrait'  => $this->portraitTemp,
             'facebook_pixel'=> $this->facebook_pixel,
         ]);
+
+        $course->instructors()->attach($this->instructors);
+        // $course->styles()->attach($this->styles);
 
         session()->flash('success', 'You have created a course successfully');
 
@@ -79,12 +90,15 @@ class Form extends Component
     {
         $this->course->update([
             'title'     => $this->title,
+            'tagline'   => $this->tagline,
+            'tags'      => $this->tags,
             'excerpt'   => $this->excerpt,
             'content'   => $this->content,
             'video'     => $this->video,
             'playlist'  => $this->playlist,
             'level'     => $this->level,
             'premium'   => $this->premium ?? 0,
+            'is_live'   => $this->live ?? 0,
             'type'      => $this->type,
             'duration'  => $this->duration,
             'order'     => $this->order,
@@ -92,6 +106,8 @@ class Form extends Component
             'portrait'  => $this->portraitTemp,
             'facebook_pixel' => $this->facebook_pixel,
         ]);
+
+        $this->course->instructors()->sync($this->instructors);
 
         session()->flash('success', 'You have updated a course successfully');
 
@@ -104,21 +120,24 @@ class Form extends Component
     {
 
         if (isset($action)) {
-            $this->action = $action;
-            $this->course = $course;
-            $this->title = $course->title;
-            $this->slug = $course->slug;
-            $this->excerpt = $course->excerpt;
-            $this->content = $course->content;
-            $this->image = $course->image;
-            $this->video = $course->video;
+            $this->action   = $action;
+            $this->course   = $course;
+            $this->title    = $course->title;
+            $this->tagline  = $course->tagline;
+            $this->tags     = $course->tags;
+            $this->slug     = $course->slug;
+            $this->excerpt  = $course->excerpt;
+            $this->content  = $course->content;
+            $this->image    = $course->image;
+            $this->video    = $course->video;
             $this->playlist = $course->playlist;
-            $this->level = $course->level;
-            $this->premium = $course->premium;
-            $this->facebook_pixel = $course->facebook_pixel;
-            $this->type = $course->type;
+            $this->level    = $course->level;
+            $this->premium  = $course->premium;
+            $this->live     = $course->is_live;
+            $this->type     = $course->type;
             $this->duration = $course->duration;
-            $this->order = $course->order;
+            $this->order    = $course->order;
+            $this->facebook_pixel = $course->facebook_pixel;
 
         }
     }

@@ -148,6 +148,30 @@
                                 @error('email')<span class="text-red-600 text-sm italic">{{ $message }}</span>@enderror
                             </div>
 
+                            <div class="col-span-6" wire:ignore>
+                                <label for="styles" class="block text-sm font-medium text-gray-700">Styles</label>
+                                <select id="styles" wire:model="styles" class="w-full" multiple>
+                                    @foreach (\App\Models\Style::all() as $style)
+                                    <option value="{{ $style->id }}" @isset($instructor)
+                                        {{ $instructor->hasStyle($style->id) ? 'selected' : ''}} @endisset>
+                                        {{ $style->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="col-span-6" wire:ignore>
+                                <label for="courses" class="block text-sm font-medium text-gray-700">Courses</label>
+                                <select id="courses" wire:model="courses" class="w-full" multiple>
+                                    @foreach (\App\Models\Course::all() as $course)
+                                    <option value="{{ $course->id }}" @isset($instructor)
+                                        {{ $instructor->hasCourse($course->id) ? 'selected' : ''}} @endisset>
+                                        {{ $course->title }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                         </div>
 
                         <div class="grid grid-cols-6 gap-6 pt-6">
@@ -204,4 +228,20 @@
             </form>
         </div>
     </div>
+
+    @push('scripts')
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script>
+        $("#styles").select2();
+        $('#styles').on('change', function(){
+            @this.styles = $(this).val()
+        });
+        $("#courses").select2();
+        $('#courses').on('change', function(){
+            @this.courses = $(this).val()
+        });
+    </script>
+    @endpush
 </div>

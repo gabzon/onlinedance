@@ -24,7 +24,22 @@
                             <div class="col-span-6">
                                 <label for="title" class="block text-sm font-medium text-gray-700">Slug</label>
                                 <input type="text" wire:model="slug" disabled
-                                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-100">
+                                    class="mt-1 focus:ring-indigo-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-100">
+                            </div>
+
+                            <div class="col-span-6">
+                                <label for="tagline" class="block text-sm font-medium text-gray-700">Tagline</label>
+                                <input type="text" wire:model="tagline" autocomplete="tagline"
+                                    class="mt-1 focus:ring-blue-600 focus:border-blue-600 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md  @error('tagline') border-red-600 @enderror">
+                                @error('tagline')<span
+                                    class="text-red-600 text-sm italic">{{ $message }}</span>@enderror
+                            </div>
+
+                            <div class="col-span-6">
+                                <label for="tags" class="block text-sm font-medium text-gray-700">Tags</label>
+                                <input type="text" wire:model="tags" autocomplete="tags"
+                                    class="mt-1 focus:ring-blue-600 focus:border-blue-600 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md  @error('tags') border-red-600 @enderror">
+                                @error('tags')<span class="text-red-600 text-sm italic">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="sm:col-span-6">
@@ -72,7 +87,18 @@
                                     playlist</p>
                             </div>
 
-
+                            <div class="col-span-6" wire:ignore>
+                                <label for="instructors"
+                                    class="block text-sm font-medium text-gray-700">Instructors</label>
+                                <select id="instructors" wire:model="instructors" class="w-full" multiple>
+                                    @foreach (\App\Models\Instructor::all() as $instructor)
+                                    <option value="{{ $instructor->id }}" @isset($course)
+                                        {{ $course->hasInstructor($instructor->id) ? 'selected' : ''}} @endisset>
+                                        {{ $instructor->first_name }} {{ $instructor->last_name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                         </div>
 
@@ -141,10 +167,19 @@
                                 <div class="relative flex items-start">
                                     <div class="flex items-center h-5">
                                         <input wire:model="premium" type="checkbox"
-                                            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                            class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
                                     </div>
                                     <div class="ml-3 text-sm">
                                         <label for="comments" class="font-medium text-gray-700">is Premium?</label>
+                                    </div>
+                                </div>
+                                <div class="relative flex items-start">
+                                    <div class="flex items-center h-5">
+                                        <input wire:model="live" type="checkbox"
+                                            class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                                    </div>
+                                    <div class="ml-3 text-sm">
+                                        <label for="comments" class="font-medium text-gray-700">is Live?</label>
                                     </div>
                                 </div>
                             </div>
@@ -160,4 +195,15 @@
             </form>
         </div>
     </div>
+    @push('scripts')
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script>
+        $("#instructors").select2();
+        $('#instructors').on('change', function(){
+            @this.instructors = $(this).val()
+        });
+    </script>
+    @endpush
 </div>

@@ -24,7 +24,7 @@ class Instructor extends Model
         'slug',
         'bio',
         'image',
-        'thumbnail',
+        'avatar',
         'portrait',
         'birthday',
         'beginning',
@@ -53,9 +53,19 @@ class Instructor extends Model
         return $this->belongsToMany(Style::class);
     }
 
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class);
+    }
+
     public function hasStyle($id)
     {
         return in_array($id, $this->styles()->pluck('style_id')->toArray());
+    }
+
+    public function hasCourse($id)
+    {
+        return in_array($id, $this->courses()->pluck('course_id')->toArray());
     }
 
     public function sluggable(): array

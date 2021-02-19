@@ -52,6 +52,11 @@ class Style extends Model
         return $this->belongsToMany(Instructor::class);
     }
 
+    public function hasInstructor($id)
+    {
+        return in_array($id, $this->instructors()->pluck('instructor_id')->toArray());
+    }
+
     public function hasCourse($id)
     {
         return in_array($id, $this->courses()->pluck('course_id')->toArray());

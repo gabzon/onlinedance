@@ -20,6 +20,7 @@ class Form extends Component
     public $video;
     public $thumbnailTemp;
     public $portraitTemp;
+    public $instructors;
     
     public function add()
     {
@@ -35,6 +36,8 @@ class Form extends Component
             'thumbnail'     => $this->thumbnail,
             'video'         => $this->video,
         ]);
+
+        $this->style->instructors()->attach($this->instructors);
 
         session()->flash('success', 'Style created successfully.');
 
@@ -52,6 +55,8 @@ class Form extends Component
             'video'         => $this->video,
         ]);
 
+        $this->style->instructors()->sync($this->instructors);
+        
         session()->flash('success', 'Style updated successfully.');
 
         return redirect(route('style.index'));

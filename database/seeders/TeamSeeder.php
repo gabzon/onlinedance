@@ -24,9 +24,34 @@ class TeamSeeder extends Seeder
         ]);
 
         User::firstOrCreate([
-            'name'              => 'Pedro Gomez',
-            'email'             => 'pedro@gomez.com',
+            'name'              => 'Dario Diaz Santana',
+            'email'             => 'dariodiazsantana@gmail.com',
+            'password'          => Hash::make('password'),
+            'role'              => 'admin',
+            'email_verified_at' => now()
+        ]);
+
+        User::firstOrCreate([
+            'name'              => 'Edgar Ochoa',
+            'email'             => 'edgar8amedina@gmail.com ',
+            'password'          => Hash::make('password'),
+            'role'              => 'admin',
+            'email_verified_at' => now()
+        ]);
+
+        User::firstOrCreate([
+            'name'              => 'Jose Gomez',
+            'email'             => 'jose@email.com',
+            'password'          => Hash::make('password'),    
+            'role'              => 'guest',        
+            'email_verified_at' => now()
+        ]);
+
+        User::firstOrCreate([
+            'name'              => 'Maria Sanchez',
+            'email'             => 'maria@email.com',            
             'password'          => Hash::make('password'),            
+            'role'              => 'user',
             'email_verified_at' => now()
         ]);
 

@@ -20,7 +20,7 @@
                     <p
                         class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                         Learn with your partner, your friends or alone all social latin dances with world champions
-                        instructors. Start free for 7 days.
+                        instructors. <br> Start free for 7 days.
                     </p>
                     <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                         <div class="rounded-md shadow">
@@ -29,20 +29,13 @@
                                 Get started
                             </a>
                         </div>
-                        {{-- <div class="mt-3 sm:mt-0 sm:ml-3">
-                            <a href="{{ route('login') }}"
-                        class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base
-                        font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 md:py-4 md:text-lg md:px-10">
-                        Login
-                        </a>
-                    </div> --}}
+                    </div>
                 </div>
+            </main>
         </div>
-        </main>
     </div>
-</div>
-<div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-    <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-        src="https://source.unsplash.com/1280x900/?dance" alt="">
-</div>
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+            src="{{ asset('images/ustyle-banner.jpg') }}" alt="">
+    </div>
 </div>

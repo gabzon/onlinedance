@@ -9,13 +9,42 @@
         <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">
             {{ $course->title }}
         </h3>
-        <span
-            class="inline-flex items-center px-2.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-red-700 dark:text-red-200">
-            {{ $course->level }}
-        </span>
+        <div class="flex justify-between">
+            <span
+                class="inline-flex items-center px-2.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-red-700 dark:text-red-200">
+                {{ $course->level }}
+            </span>
+            @if ($course->is_live)
+            <span
+                class="inline-flex items-center px-2.5 rounded-full text-xs font-medium bg-red-800 text-red-100 dark:bg-red-700 dark:text-red-200">Live</span>
+            @endif
+        </div>
+
         <p class="text-sm text-gray-500 my-2 dark:text-gray-300">
             {{ $course->excerpt }}
         </p>
+
+        <div class="flex items-center">
+            <div class="flex -space-x-2 overflow-hidden">
+                @foreach ($course->instructors as $i)
+                <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="{{ asset($i->avatar)}}"
+                    alt="{{ $i->first_name }}">
+                @endforeach
+            </div>
+            <div class="ml-2">
+                @foreach ($course->instructors as $i)
+                @if (!$loop->last)
+                <span class="text-gray-600 text-xs">
+                    {{ $i->first_name }}{{ count($course->instructors) == 2 ? ' y':','}}
+                </span>
+                @else
+                <span class="text-gray-600 text-xs">{{ $i->first_name }}</span>
+                @endif
+                @endforeach
+            </div>
+
+        </div>
+
     </div>
     <footer class="mt-auto px-4 pb-2">
         <div class="flex justify-between">

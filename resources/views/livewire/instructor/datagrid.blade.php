@@ -52,9 +52,9 @@
                                             class="flex-shrink-0 group block">
                                             <div class="flex items-center">
                                                 <div>
-                                                    @if ($item->thumbnail)
+                                                    @if ($item->avatar)
                                                     <img class="inline-block h-9 w-9 rounded-full"
-                                                        src="{{ asset($item->thumbnail) }}" alt="">
+                                                        src="{{ asset($item->avatar) }}" alt="">
                                                     @endif
                                                 </div>
                                                 <div class="ml-3">
@@ -75,7 +75,11 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         @foreach ($item->styles as $s)
+                                        @if (!$loop->last)
+                                        {{ $s->name }} |
+                                        @else
                                         {{ $s->name }}
+                                        @endif
                                         @endforeach
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -93,7 +97,7 @@
                                             </a>
                                             <button wire:click="delete({{ $item->id }})" type="submit"
                                                 class="ml-2 text-gray-600 hover:text-red-700"
-                                                onclick="confirm('Are you sure you want to delete this course?') || event.stopImmediatePropagation()">
+                                                onclick="confirm('Are you sure you want to delete this instructor?') || event.stopImmediatePropagation()">
                                                 @include('icons.trash')
                                             </button>
                                         </div>

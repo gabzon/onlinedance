@@ -18,7 +18,7 @@ class Form extends Component
     public $slug;
     public $bio;
     public $image;
-    public $thumbnail;
+    public $avatar;
     public $portrait;
     public $video;
     public $birthday;
@@ -34,17 +34,19 @@ class Form extends Component
     public $thumbnailTemp;
     public $portraitTemp;
     public $imageTemp;
-
+    public $styles;
+    public $courses;
 
     public function add()
-    {
+    {        
         $this->validate([
-            'first_name'     => 'required',
-            'birthday'     => 'nullable|date',
-            'beginning'    => 'nullable|date',
+            'first_name'    => 'required',
+            'last_name'     => 'required',
+            'birthday'      => 'nullable|date',
+            'beginning'     => 'nullable|date',
         ]);
             
-        Instructor::create([
+        $this->instructor = Instructor::create([
             'first_name'=> $this->first_name,
             'last_name' => $this->last_name,
             'nickname'  => $this->nickname,
@@ -52,7 +54,7 @@ class Form extends Component
             'bio'       => $this->bio,
             'image'     => $this->image,
             'portrait'  => $this->portrait,
-            'thumbnail' => $this->thumbnail,
+            'avatar'    => $this->avatar,
             'video'     => $this->video,
             'birthday'  => $this->birthday,
             'beginning' => $this->beginning,
@@ -65,6 +67,9 @@ class Form extends Component
             'phone'     => $this->phone,
             'email'     => $this->email,
         ]);
+        
+        $this->instructor->styles()->attach($this->styles);
+        $this->instructor->courses()->attach($this->courses);
 
         session()->flash('success', 'Instructor created successfully.');
 
@@ -72,7 +77,8 @@ class Form extends Component
     }
 
     public function edit()
-    {
+    {        
+
         $this->validate([
             'birthday'     => 'nullable|date',
             'beginning'    => 'nullable|date',
@@ -86,7 +92,7 @@ class Form extends Component
             'bio'       => $this->bio,
             'image'     => $this->image,
             'portrait'  => $this->portrait,
-            'thumbnail' => $this->thumbnail,
+            'avatar'    => $this->avatar,
             'video'     => $this->video,
             'birthday'  => $this->birthday,
             'beginning' => $this->beginning,
@@ -99,6 +105,9 @@ class Form extends Component
             'phone'     => $this->phone,
             'email'     => $this->email,
         ]);
+        
+        $this->instructor->styles()->sync($this->styles);
+        $this->instructor->courses()->sync($this->courses);
 
         session()->flash('success', 'Instructor updated successfully.');
 
@@ -144,7 +153,7 @@ class Form extends Component
                 $this->slug       = $instructor->slug;
                 $this->bio        = $instructor->bio;
                 $this->image      = $instructor->image;
-                $this->thumbnail  = $instructor->thumbnail;
+                $this->avatar     = $instructor->avatar;
                 $this->portrait   = $instructor->portrait;
                 $this->video      = $instructor->video;
                 $this->birthday   = $instructor->birthday;
