@@ -55,5 +55,12 @@ class TeamSeeder extends Seeder
             'email_verified_at' => now()
         ]);
 
+        User::firstOrCreate([
+            'name'              => 'Maria Sanchez',
+            'email'             => 'Albasanmol@gmail.com',            
+            'password'          => Hash::make('password'),            
+            'role'              => 'admin',
+            'email_verified_at' => now()
+        ]);
     }
 }

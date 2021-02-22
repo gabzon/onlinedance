@@ -56,14 +56,14 @@
                             </div>
                         </li>
 
-                        <li class="py-4 flex">
-                            <img class="h-10 w-10 rounded-full"
-                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
-                                alt="">
+                        <li class="py-4 flex items-center">
+                            @foreach ($course->instructors as $teacher)
+                            <img class="h-8 w-8 rounded-full" src="{{ asset($teacher->avatar) }}" alt="">
                             <div class="ml-3">
-                                <p class="text-sm font-medium text-gray-900">Ted Fox</p>
-                                <p class="text-sm text-gray-500">ted.fox@example.com</p>
+                                <p class="text-sm font-medium text-gray-900">{{ $teacher->first_name }}
+                                    {{ $teacher->last_name }}</p>
                             </div>
+                            @endforeach
                         </li>
                     </ul>
                 </div>
@@ -74,7 +74,7 @@
 
             <div class="flex justify-between">
                 <div class="h-96">
-                    <img src="{{ asset($course->thumbnail ) }}" alt="" class="w-full bg-cover">
+                    {{-- <img src="{{ asset($course->thumbnail ) }}" alt="" class="w-full bg-cover"> --}}
                 </div>
 
             </div>
