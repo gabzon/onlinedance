@@ -68,21 +68,8 @@
                         </div>
                         <div class="text-2xl font-bold">$0</div>
                     </div>
-                    <label for="cardholder-name" class="text-base font-medium text-gray-900">Cardholder name</label>
-                    <input type="text" id="cardholder-name"
-                        class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-100 rounded-md">
                 </div>
             </fieldset>
-
-            <label for="card-element" class="text-base font-medium text-gray-900">
-                Credit or debit card
-            </label>
-            <div id="card-element">
-                <!-- A Stripe Element will be inserted here. -->
-            </div>
-
-            <!-- Used to display form errors. -->
-            <div id="card-errors" role="alert"></div>
         </div>
 
 

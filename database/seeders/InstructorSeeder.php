@@ -30,7 +30,7 @@ class InstructorSeeder extends Seeder
             'tiktok'        => 'https://tiktok.com',
             'youtube'       => 'https://www.youtube.com/channel/UCy79Zqy7AoSpHSBdEWu6uiw',            
             'video'         => '',
-            'portrait'      => 'instructors/alba-red-bg-white.JPG',
+            'portrait'      => 'instructors/portrait/alba.png',
             'avatar'        => 'instructors/avatar/ALBA.JPG',
             'image'         => 'https://loremflickr.com/1920/180/female',          
             'phone'         => $faker->phoneNumber,
@@ -39,7 +39,7 @@ class InstructorSeeder extends Seeder
             'beginning'     => $faker->dateTimeBetween($startDate = '-30 years', $endDate = '-5 years', $timezone = null),
             'nickname'      => $faker->userName,
         ]);
-        $alba->styles()->attach(1);
+        $alba->styles()->attach([1,7]);
 
         // 2
         $ronald = Instructor::create([
@@ -49,7 +49,7 @@ class InstructorSeeder extends Seeder
             'origin'        => 'Colombia',
             'bio'           => 'Born and raised in Colombia, he moved to Valencia, Spain and lives there since 2001. Since his childhood he has been a part of dance and sports worlds, practicing dance styles such as Break Dance and Salsa Caleña, among others. In 2005 he began to compete in Salsa and Bachata and shortly afterwards he obtained the title of Bachata Champion of Spain. Since 2012, he and his current partner Alba Sanchez were unstoppable in every competition that they participated in. Today, they are Two-Time World Champions and they travel all over the world teaching their original style.',
             'facebook'      => 'https://www.facebook.com/ronald.castroviveros.7',
-            'portrait'      => 'instructors/ronald-bg-white.jpg',
+            'portrait'      => 'instructors/portrait/ronald.png',
             'avatar'        => 'instructors/avatar/RONALD.JPG',
             'image'         => 'https://loremflickr.com/1920/180/male',
             'phone'         => $faker->phoneNumber,
@@ -67,7 +67,7 @@ class InstructorSeeder extends Seeder
             'slug'          => 'sara-linaza',
             'origin'        => 'Sevilla, Spain',
             'bio'           => 'Sara is from Seville, Spain, and she began her training in Salsa and Bachata when she was only 14 years old. <br><br>A few years later, she realized that it was her passion and she wanted to become a teacher.<br><br>But it was in 2015 when, together with Dario, she began to teach classes and travel around the world teaching her/their original Bachata style. Today, both of them promote this dancing style.',          
-            'portrait'      => 'instructors/sara-bg-white.JPG',     
+            'portrait'      => 'instructors/portrait/sara.png',     
             'avatar'        => 'instructors/avatar/SARA.JPG',
             'image'         => 'https://loremflickr.com/1920/180/female',
             'phone'         => $faker->phoneNumber,
@@ -85,7 +85,7 @@ class InstructorSeeder extends Seeder
             'slug'          => 'dario-diaz',
             'origin'        => 'Las Palmas, Spain',
             'bio'           => 'Born in Las Palmas de Gran Canaria, Spain, he began his training in Latin dances over 15 years ago.<br><br>Already in the first years of his carrier, he moved to the island to start teaching, and at only 17 he was already a teacher in one of the largest dance academies in the entire islands.<br><br>It was in 2015 when he met Sara and they began their journey together. Today they are known all over the world for their different and original Bachata style.',
-            'portrait'      => 'instructors/dario-bg-white.JPG',
+            'portrait'      => 'instructors/portrait/dario.png',
             'avatar'        => 'instructors/avatar/DARIO.JPG',
             'image'         => 'https://loremflickr.com/1920/180/male',
             'phone'         => $faker->phoneNumber,
@@ -103,7 +103,7 @@ class InstructorSeeder extends Seeder
             'slug'       => 'raquel-martinez',
             'origin'     => 'Spain',
             'bio'        => 'Personal trainer with more than 8 years of experience in the world of fitness',
-            'portrait'      => 'instructors/RAQUEL.JPG',
+            'portrait'      => 'instructors/portrait/raquel.png',
             'avatar'        => 'instructors/avatar/RAQUEL.JPG',
             'image'         => 'https://loremflickr.com/1920/180/female',
             'phone'         => $faker->phoneNumber,
@@ -121,7 +121,7 @@ class InstructorSeeder extends Seeder
             'slug'          => 'cristian-mateu',
             'origin'        => 'Spain',
             'bio'           => 'Cristian is a great professional of directed activities with more than ten years of experience in different modalities such as fitness, dance, cardio.',
-            'portrait'         => 'instructors/CRISTIAN.jpg',
+            'portrait'      => 'instructors/portrait/cristian.png',
             'avatar'        => 'instructors/avatar/CRISTIAN.JPG',
             'image'         => 'https://loremflickr.com/1920/180/male',
             'phone'         => $faker->phoneNumber,
@@ -130,7 +130,7 @@ class InstructorSeeder extends Seeder
             'beginning'     => $faker->dateTimeBetween($startDate = '-30 years', $endDate = '-5 years', $timezone = null),
             'nickname'      => $faker->userName,
         ]);
-        $cristian->styles()->attach(9);
+        $cristian->styles()->attach(4);
 
         // 7
         $helena = Instructor::create([
@@ -139,7 +139,7 @@ class InstructorSeeder extends Seeder
             'slug'          => 'helena-sanchez',
             'origin'        => 'Elche, Spain',
             'bio'           => 'Born in Elche and graduated in medicine from the Miguel Hernández University in Elche, she has received a long training in classical dance under great teachers, including Ana Carreño, Sofia Sancho, Carmela García, etc.',
-            'portrait'         => 'instructors/HELENA.jpeg',
+            'portrait'      => 'instructors/portrait/helena.png',
             'avatar'        => 'instructors/avatar/HELENA.JPG',
             'image'         => 'https://loremflickr.com/1920/180/female',
             'phone'         => $faker->phoneNumber,
@@ -148,7 +148,7 @@ class InstructorSeeder extends Seeder
             'beginning'     => $faker->dateTimeBetween($startDate = '-30 years', $endDate = '-5 years', $timezone = null),
             'nickname'      => $faker->userName,
         ]);
-        $helena->styles()->attach(9);
+        $helena->styles()->attach(5);
 
 
         // 8
@@ -158,7 +158,7 @@ class InstructorSeeder extends Seeder
             'slug'          => 'omar-enrique-trujillo-moreno',
             'origin'        => 'Venezuela',
             'bio'           => 'Born in Venezuela, he started dancing at the age of 6 in different schools of salsa, contemporary, and folklore. At the age of 13 he began his training in classical dance at the Gustavo Franklin ballet school. At 16 he began his studies in urban dance at Broadway Dance Center in New York. He won different national and international competitions with his group, Real Strong Fam. He currently resides in the Canary Islands.',
-            'portrait'      => 'instructors/omar-bg-white.JPG',
+            'portrait'      => 'instructors/portrait/omar.png',
             'avatar'        => 'instructors/avatar/OMAR.JPG',
             'image'         => 'https://loremflickr.com/1920/180/male',
             'phone'         => $faker->phoneNumber,
@@ -167,7 +167,7 @@ class InstructorSeeder extends Seeder
             'beginning'     => $faker->dateTimeBetween($startDate = '-30 years', $endDate = '-5 years', $timezone = null),
             'nickname'      => $faker->userName,
             ]);
-        $omar->styles()->attach(6);
+        $omar->styles()->attach(3);
 
 
         // 9
@@ -177,7 +177,7 @@ class InstructorSeeder extends Seeder
             'slug'          => 'juan',
             'origin'        => 'Albacete, Spain',
             'bio'           => 'Born in Albacete, Spain, his world has always been the one of motorcycles (o de motores como “engine”?), until Nerea crossed his path. With her by his side, he entered the world of dance, advancing at a fast pace. Thanks to their commitment and dedication, they have become incredible teachers and artists. ',
-            'portrait'         => 'instructors/JUAN.jpg',
+            'portrait'         => 'instructors/portrait/juan.png',
             'avatar'        => 'instructors/avatar/JUAN.JPG',
             'image'         => 'https://loremflickr.com/1920/180/male',
             'phone'         => $faker->phoneNumber,
@@ -196,7 +196,7 @@ class InstructorSeeder extends Seeder
             'slug'          => 'nerea',
             'origin'        => 'Albacete, Spain',
             'bio'           => 'Coming from Albacete, Spain, Nerea has been involved in dancing (sevillanas, rhythmic gymnastics…) since she was a child. When she was 8 years old she started practicing Latin dances and doing performances. Years later she met Juan and they began to dance together; at the beginning as a hobby, and later training with Ronald and Alba and winning important competitions.',
-            'portrait'         => 'instructors/NEREA.jpg',
+            'portrait'         => 'instructors/portrait/nerea.png',
             'avatar'        => 'instructors/avatar/NEREA.JPG',
             'image'         => 'https://loremflickr.com/1920/180/female',
             'phone'         => $faker->phoneNumber,
@@ -215,7 +215,7 @@ class InstructorSeeder extends Seeder
             'slug'          => 'mar-garcia',
             'origin'        => 'Tenerife, Spain',         
             'bio'           => 'Born in Tenerife, Spain, Mar has liked all kinds of dance disciplines from ballet to salsa from a very young age, and has worked hard so she could train with the best. For the last few years she has been dedicating her time to Salsa and urban dance. She holds titles as the 2018 Salsa World Champion and the 2019 Urban Latin Champion.',
-            'portrait'         => 'instructors/mar-bg-white.jpg',
+            'portrait'      => 'instructors/portrait/mar.png',
             'avatar'        => 'instructors/avatar/MAR.JPG',
             'image'         => 'https://loremflickr.com/1920/180/female',
             'phone'         => $faker->phoneNumber,
@@ -234,7 +234,7 @@ class InstructorSeeder extends Seeder
             'slug'          => 'laura-rodriguez',
             'origin'        => 'Las Palmas, Spain',
             'bio'           => 'Born and raised in Las Palmas de Gran Canaria, Spain, Laura entered the world of sports at the age of 5 with rhythmic gymnastics. At 18 she decided to focus more on classical dance and other dance styles. Years later, she dedicated herself more deeply to the Latin dances, Bachata being her favorite. Today, she is the World Champion of Bachata fusion.',
-            'portrait'         => 'instructors/LAURA.jpeg',
+            'portrait'      => 'instructors/portrait/laura.png',
             'avatar'        => 'instructors/avatar/LAURA.JPG',
             'image'         => 'https://loremflickr.com/1920/180/female',
             'phone'         => $faker->phoneNumber,

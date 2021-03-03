@@ -101,11 +101,27 @@ class Form extends Component
             'is_live'   => $this->live ?? 0,
             'type'      => $this->type,
             'duration'  => $this->duration,
-            'order'     => $this->order,
-            'thumbnail' => $this->thumbnailTemp,
-            'portrait'  => $this->portraitTemp,
+            'order'     => $this->order,            
             'facebook_pixel' => $this->facebook_pixel,
         ]);
+        
+        if (!$this->thumbnail == null) {
+            if ($this->course->thumbnail != $this->thumbnail) {                    
+                $this->course->update([
+                    'thumbnail'     => $this->thumbnailTemp
+                ]);            
+                $this->thumbnail = $this->thumbnailTemp;
+            }
+        }
+
+        if (!$this->portrait == null) {
+            if ($this->course->portrait != $this->portrait) {                    
+                $this->course->update([
+                    'portrait'     => $this->portraitTemp
+                ]);            
+                $this->thumbnail = $this->portraitTemp;
+            }
+        }
 
         $this->course->instructors()->sync($this->instructors);
 
@@ -128,7 +144,8 @@ class Form extends Component
             $this->slug     = $course->slug;
             $this->excerpt  = $course->excerpt;
             $this->content  = $course->content;
-            $this->image    = $course->image;
+            $this->thumbnail= $course->thumbnail;
+            $this->portrait= $course->portrait;
             $this->video    = $course->video;
             $this->playlist = $course->playlist;
             $this->level    = $course->level;

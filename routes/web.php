@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\InstructorController;
+use App\Http\Controllers\MollieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StyleController;
@@ -25,9 +26,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-//verifyHasAccess
+//
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+Route::middleware(['auth:sanctum', 'verified', 'verifyHasAccess'])->group(function(){
     Route::get('/dashboard', [ProfileController::class,'dashboard'])->name('dashboard');
     Route::get('/plan', [ProfileController::class,'plan'])->name('plan');
     Route::get('/favorites', [ProfileController::class,'favorites'])->name('favorites');
@@ -39,31 +40,7 @@ Route::middleware(['auth:sanctum', 'verified', 'paidCustomer'])->get('/subscribe
     return view('pages.subscribe');
 })->name('subscribe');
 
-Route::middleware(['auth:sanctum', 'verified', 'paidCustomer'])->post('/subscribe', function (Request $request) {    
-    // dd($request->all());
-    $user = auth()->user();
-
-    $name = 'main  membership';
-    $plan = $request->plan;
-
-    if(!$user->subscribed($name, $plan)) {
-
-        $result = $user->newSubscription($name, $plan)->create();
-
-        if(is_a($result, RedirectToCheckoutResponse::class)) {
-            return $result; // Redirect to Mollie checkout
-        }        
-
-        return redirect('/dashboard')->with('status', 'Welcome to the ' . $plan . ' plan');
-    }
-
-    return redirect('/dashboard')->with('status', 'You are already on the ' . $plan . ' plan');
-})->name('subscribe.post');
-
-
-Route::middleware(['auth:sanctum', 'verified', 'payingCustomer'])->get('members', function () {
-    return view('pages.members');
-})->name('members');
+Route::middleware(['auth:sanctum', 'verified'])->post('/subscribe', [MollieController::class,'createSubscription'])->name('subscribe.post');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){    
@@ -95,9 +72,13 @@ Route::get('instructors', function(){
 })->name('instructors');
 
 
-Route::get('/user/invoice/{invoice}', function (Request $request, $invoiceId) {
-    return $request->user()->downloadInvoice($invoiceId, [
-        'vendor' => 'Online Class',
-        'product' => 'Monthly program',
-    ]);
+// Route::get('/user/invoice/{invoice}', function (Request $request, $invoiceId) {
+//     return $request->user()->downloadInvoice($invoiceId, [
+//         'vendor' => 'Online Class',
+//         'product' => 'Monthly program',
+//     ]);
+// });
+
+Route::middleware('auth')->get('/user/invoice/{invoice}', function($orderId){
+    return (request()->user()->downloadInvoice($orderId));
 });

@@ -76,7 +76,7 @@ class User extends Authenticatable implements ProvidesInvoiceInformation
 
     public function hasAccess()
     {
-        return $this->role == 'admin' || $this->role == 'guest';
+        return $this->role == 'admin' || $this->role == 'guest' || $this->subscribed('Online classes');
     }
 
     public function getIsActiveAttribute()

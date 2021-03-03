@@ -9,7 +9,7 @@
         <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">
             {{ $course->title }}
         </h3>
-        <div class="flex justify-between">
+        <div class="flex justify-between mt-1">
             <span
                 class="inline-flex items-center px-2.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-red-700 dark:text-red-200">
                 {{ $course->level }}

@@ -1,3 +1,10 @@
+# v0.0.1: 03.03.2021
+* Images upload debugged
+
+# v0.0.2: 24.02.2021
+* Mollie integration
+* Plan section
+
 # v0.0.1 : 19.02.2021
 * An admin can associate an instructor to a style and viceversa
 * An Admin can associate a class to an instructor and viceversa

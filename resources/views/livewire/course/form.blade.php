@@ -139,14 +139,15 @@
 
                             <div class="col-span-6">
 
+                                @if ($action == 'edit')
                                 @isset($thumbnail)
-                                @isset($action)
-                                <img src="{{ asset($course->thumbnail) }}" class="mb-2">
+                                <img src="{{ asset($thumbnail) }}" class="mb-2">
+                                @endisset
                                 @else
-                                <img src="{{ asset($thumbnailTemp) }}" class="mb-2">
-                                @endisset
-                                @endisset
-
+                                @if ($thumbnail)
+                                <img src="{{ asset($thumbnail) }}" class="mb-2">
+                                @endif
+                                @endif
 
                                 <label for="thumbnail" class="block text-sm font-medium text-gray-700">Thumbnail</label>
                                 <input type="file" wire:model="thumbnail">
@@ -155,6 +156,16 @@
                             </div>
 
                             <div class="col-span-6">
+
+                                @if ($action == 'edit')
+                                @isset($portrait)
+                                <img src="{{ asset($portrait) }}" class="mb-2">
+                                @endisset
+                                @else
+                                @if ($portrait)
+                                <img src="{{ asset($portrait) }}" class="mb-2">
+                                @endif
+                                @endif
                                 <label for="portrait" class="block text-sm font-medium text-gray-700">Portrait</label>
                                 <input type="file" wire:model="portrait">
                                 @error('portrait')<span

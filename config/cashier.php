@@ -44,7 +44,7 @@ return [
          * Plan. You can use either a relative or absolute url.
          */
         'webhook_url' => 'https://onlinedance.sharedwithexpose.com/webhooks/mollie/first-payment',
-
+        
         /**
          * A comma-separated list of allowed Mollie payment methods for the first payment. Make sure the methods are
          * enabled in the Mollie dashboard. Set to NULL to let Mollie handle this for you. Can be overridden per plan.
@@ -68,19 +68,19 @@ return [
              * A string containing the exact amount you want to charge for the first payment, in the given currency.
              * Make sure to set the right amount of decimals. Non-string values are not accepted by Mollie.
              */
-            'value' => '1.00',
+            'value' => '0',
 
             /**
              * An ISO 4217 currency code. The currencies supported depend on the payment methods that are enabled on
              * your Mollie account.
              */
-            'currency' => 'EUR',
+            'currency' => 'USD',
         ],
 
         /**
          * The default description for the first payment, visible on both the invoice and the customer bank records.
          */
-        'description' => 'Welcome to ' . config('app.name'),
+        'description' => 'received payment from ' . config('app.name'),
     ],
 
 ];

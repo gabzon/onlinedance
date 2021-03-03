@@ -20,8 +20,7 @@ class verifyHasAccess
             return $next($request);
         }
 
-        if (($request->user() && !$request->user()->subscribed('OnlineClass')) ) {    
-
+        if (($request->user() && !$request->user()->subscribed('Online classes')) ) {    
             return redirect('subscribe');
         }
 

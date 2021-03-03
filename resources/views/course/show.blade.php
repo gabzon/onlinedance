@@ -15,25 +15,23 @@
         </div>
     </x-slot>
 
-    @if (!auth()->user()->subscribed('OnlineClass'))
-    <div class="pt-5">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="overflow-hidden rounded-3xl mt-5">
-                {!! $course->video !!}
-            </div>
-        </div>
-    </div>
-    @endif
 
-    @if (auth()->user()->subscribed('OnlineClass'))
     <div class="pt-5">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden py-8">
+                @if (!auth()->user()->hasAccess())
                 {!! $course->playlist !!}
+                @else
+                @if ($course->video)
+                {!! $course->video !!}
+                @else
+                <img src="{{ $course->portrait ? asset($course->portrait): asset($course->thumbnail)}}" alt="">
+                @endif
+                @endif
             </div>
         </div>
     </div>
-    @endif
+
 
 
     <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
