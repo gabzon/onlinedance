@@ -57,7 +57,8 @@ return [
          * overridden per Plan. You can use a `{payment_id}` placeholder here to easily retrieve the Mollie payment in
          * your controller. Make sure you have set up a matching route.
          */
-        'redirect_url' => config('app.url'),
+        //'redirect_url' => config('app.url'),
+        'redirect_url' => route('thank-you'),
 
         /**
          * The default amount for a first payment. Can be overridden per Plan.
@@ -80,7 +81,7 @@ return [
         /**
          * The default description for the first payment, visible on both the invoice and the customer bank records.
          */
-        'description' => 'received payment from ' . config('app.name'),
+        'description' => 'Received payment from ' . config('app.name'),
     ],
 
 ];
