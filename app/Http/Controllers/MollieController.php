@@ -22,21 +22,19 @@ class MollieController extends Controller
                             ->trialDays(7)
                             ->create();
             
-            if(is_a($result, RedirectToCheckoutResponse::class)) {
-                // dd('Im heeere');                
+            if(is_a($result, RedirectToCheckoutResponse::class)) {                             
                 return $result; // Redirect to Mollie checkout
             }        
-            dd('shoo');  
-            // return redirect('/dashboard')->with('status', 'Welcome to the ' . $plan . ' plan');
-            return redirect(route('thank-you'))->with('status', 'Welcome to the ' . $plan . ' plan');
+            
+            return redirect('thank-you')->with('status', 'Welcome to the ' . $plan . ' plan');            
         }
-        dd('or tu'); 
-        return redirect(route('thank-you'))->with('status', 'Welcome to the ' . $plan . ' plan');
-        // return redirect('/dashboard')->with('status', 'You are already on the ' . $plan . ' plan');
+        
+        return redirect(route('thank-you'))->with('status', 'Welcome to the ' . $plan . ' plan');        
     }
 
-    public function thankyou()
+    public function thankyou(Request $request)
     {
+        dd($request->all());
         return view('pages.thank-you');
     }
 }
