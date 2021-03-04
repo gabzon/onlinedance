@@ -34,7 +34,7 @@ class MollieController extends Controller
 
     public function thankyou(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         return view('pages.thank-you');
     }
 }
