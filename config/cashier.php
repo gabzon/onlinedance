@@ -58,7 +58,7 @@ return [
          * your controller. Make sure you have set up a matching route.
          */
         //'redirect_url' => config('app.url'),
-        'redirect_url' => route('thank-you'),
+        'redirect_url' => '/thank-you',
 
         /**
          * The default amount for a first payment. Can be overridden per Plan.
