@@ -19,7 +19,7 @@
     <div class="pt-5">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden py-8">
-                @if (!auth()->user()->hasAccess())
+                @if (auth()->user()->hasAccess())
                 {!! $course->playlist !!}
                 @else
                 @if ($course->video)

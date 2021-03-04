@@ -32,4 +32,9 @@ class MollieController extends Controller
         return redirect(route('thank-you'))->with('status', 'Welcome to the ' . $plan . ' plan');
         // return redirect('/dashboard')->with('status', 'You are already on the ' . $plan . ' plan');
     }
+
+    public function thankyou()
+    {
+        return view('pages.thank-you');
+    }
 }

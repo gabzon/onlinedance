@@ -44,6 +44,7 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/subscribe', [MollieContr
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){    
+    Route::get('thank-you', [MollieController::class,'thankyou'])->name('thank-you');
     Route::get('admin/setting', [SettingController::class,'main'])->name('setting.main');
     Route::get('admin/setting/seo', [SettingController::class,'seo'])->name('setting.seo');
     Route::get('admin/setting/terms', [SettingController::class,'terms'])->name('setting.terms');
