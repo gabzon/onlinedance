@@ -17,18 +17,20 @@ class MollieController extends Controller
         $plan = $request->plan;
     
         if(!$user->subscribed($name, $plan)) {
-    
+             
             $result = $user->newSubscription($name, $plan)
                             ->trialDays(7)
                             ->create();
-    
+            
             if(is_a($result, RedirectToCheckoutResponse::class)) {
+                // dd('Im heeere');                
                 return $result; // Redirect to Mollie checkout
             }        
-    
+            dd('shoo');  
             // return redirect('/dashboard')->with('status', 'Welcome to the ' . $plan . ' plan');
             return redirect(route('thank-you'))->with('status', 'Welcome to the ' . $plan . ' plan');
         }
+        dd('or tu'); 
         return redirect(route('thank-you'))->with('status', 'Welcome to the ' . $plan . ' plan');
         // return redirect('/dashboard')->with('status', 'You are already on the ' . $plan . ' plan');
     }

@@ -2,7 +2,7 @@
     <form action="{{ route('subscribe.post') }}" method="post" id="payment-form">
         @csrf
         <div class="form-row">
-            <fieldset x-data="{ monthly: false, yearly: false, plan:'', price:'' }" class="mb-5">
+            <fieldset x-data="{ monthly: false, yearly: true, plan:'yearly', price:'100' }" class="mb-5">
                 <legend class="text-gray-800 text-lg font-semibold mb-2">
                     Pricing plans
                 </legend>
@@ -33,8 +33,8 @@
                         <div :class="{ 'bg-blue-50 border-blue-200 z-10':yearly, 'border-gray-200':!yearly}"
                             class="relative border border-gray-200 rounded-bl-md rounded-br-md p-4 flex flex-col md:pl-4 md:pr-6 md:grid md:grid-cols-3">
                             <label class="flex items-center text-sm cursor-pointer">
-                                <input name="plan" type="radio" @click="{yearly = true, plan='yearly', price='100'}"
-                                    @click.away="yearly = false"
+                                <input name="plan" type="radio" checked
+                                    @click="{yearly = true, plan='yearly', price='100'}" @click.away="yearly = false"
                                     class="focus:ring-blue-500 h-4 w-4 text-blue-600 cursor-pointer border-gray-300"
                                     aria-describedby="plan-option-pricing-2 plan-option-limit-2" value="yearly"
                                     id="yearly">
