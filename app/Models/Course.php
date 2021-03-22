@@ -106,6 +106,7 @@ class Course extends Model
         return (bool) Todo::where('user_id', Auth::id())->where('course_id', $this->id)->first();
     }
 
+
     public function sluggable(): array
     {
         return [
