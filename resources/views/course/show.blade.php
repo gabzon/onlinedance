@@ -7,7 +7,7 @@
             <div class="mt-3 sm:mt-0 sm:ml-4">
                 @if (auth()->user()->isAdmin())
                 <a href="{{ route('course.edit', $course) }}"
-                    class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 dark:bg-red-600 dark:hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Edit Course
                 </a>
                 @endif
@@ -43,7 +43,7 @@
                         <li class="py-4 flex">
                             @foreach ($course->styles as $item)
                             <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">{{ $item->name}}</span>
+                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-red-200 dark:text-red-800">{{ $item->name}}</span>
                             @endforeach
                         </li>
 

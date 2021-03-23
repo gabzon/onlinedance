@@ -1,9 +1,8 @@
 <section id="catalogue" class="mx-3 sm:mx-0">
     <div id="filters" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
         <div>
-            <label for="style" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Style</label>
             <select wire:model="style"
-                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600">
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                 <option value="">All Styles</option>
                 <option value="1">Bachata</option>
                 <option value="1">Salsa</option>
@@ -13,7 +12,6 @@
             </select>
         </div>
         <div>
-            <label for="level" class="block text-sm font-medium text-gray-700">Level</label>
             <select wire:model="level"
                 class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                 <option value="">All levels</option>
@@ -26,7 +24,6 @@
 
 
         <div>
-            <label for="type" class="block text-sm font-medium text-gray-700">Type</label>
             <select wire:model="type"
                 class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                 <option value="">All types</option>

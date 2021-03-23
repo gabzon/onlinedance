@@ -23,9 +23,9 @@
 </head>
 {{-- {{ config('settings.theme_mode') == 1 ? 'dark':''}}" --}}
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased {{ config('services.school.name') == 'dancefloor' ? 'dark': ''}}">
     <div class="min-h-screen bg-gray-100">
-        <div class="{{ env('SCHOOL_NAME') == 'dancefloor' ? 'dark': ''}}">
+        <div>
             @livewire('navigation-dropdown')
         </div>
         <!-- Page Heading -->

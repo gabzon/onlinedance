@@ -18,12 +18,15 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="{{ config('services.school.name') == 'dancefloor' ? 'dark': ''}}">
     @livewire('navigation-dropdown')
-    <div class="font-sans text-gray-900 antialiased">
-        {{ $slot }}
+    <div class="bg-gray-100">
+        <div class="font-sans text-gray-900 antialiased">
+            {{ $slot }}
+        </div>
     </div>
     @include('partials.footer')
+
 </body>
 
 </html>

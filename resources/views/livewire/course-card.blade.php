@@ -1,12 +1,12 @@
 <div
-    class="flex flex-col bg-white dark:bg-gray-100 mx-4 rounded-3xl shadow-sm hover:shadow-2xl overflow-hidden mb-3 border dark:hover:border-red-700">
+    class="flex flex-col bg-white dark:bg-gray-100 mx-4 rounded-3xl shadow-sm hover:shadow-2xl overflow-hidden mb-3 border">
     <div class="rounded-t-3xl">
         <a href="{{ route('course.show', $course) }}">
             <img src="{{ asset($course->thumbnail) }}" alt="{{ $course->name }}" class="h-72 object-cover">
         </a>
     </div>
     <div class="px-4 py-4">
-        <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">
+        <h3 class="text-xl font-semibold text-gray-700">
             {{ $course->title }}
         </h3>
         <div class="flex justify-between mt-1">
@@ -20,7 +20,7 @@
             @endif
         </div>
 
-        <p class="text-sm text-gray-500 my-2 dark:text-gray-300">
+        <p class="text-sm text-gray-500 my-2">
             {{ $course->excerpt }}
         </p>
 
@@ -55,8 +55,7 @@
                     @include('icons.heart-fill')
                 </button>
                 @else
-                <button wire:click="favorite({{$course->id}})"
-                    class="hover:text-blue-500 dark:text-white dark:hover:text-red-600">
+                <button wire:click="favorite({{$course->id}})" class="hover:text-blue-500 dark:hover:text-red-600">
                     @include('icons.heart')
                 </button>
                 @endif

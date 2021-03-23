@@ -16,10 +16,11 @@
                                 <div class="bg-cover bg-center object-fill w-full rounded-lg shadow"
                                     style="background-image: url({{ asset($teacher->portrait) }})">
                                     <div class="absolute bottom-0.5 pl-5 pb-2">
-                                        <span class="bg-blue-700 py-1 px-2 text-white text-xl font-bold">
+                                        <span
+                                            class="bg-blue-700 py-1 px-2 text-white text-xl font-bold dark:bg-red-700">
                                             {{ $teacher->first_name}} {{ $teacher->last_name}}
                                         </span>
-                                        <p class="text-blue-700 font-semibold pl-2">
+                                        <p class="text-blue-700 font-semibold pl-2 dark:text-red-700">
                                             @foreach ($teacher->styles as $s)
                                             {{ $s->name }}
                                             @endforeach

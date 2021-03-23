@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="py-2 dark:bg-gray-900">
+    <div class="py-2">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="py-8">
                 <livewire:catalogue />

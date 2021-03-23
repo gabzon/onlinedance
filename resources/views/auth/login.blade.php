@@ -12,7 +12,8 @@
         </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}"
+            class="{{ config('services.school.name') == 'dancefloor' ? 'dark': ''}}">
             @csrf
 
             <div>

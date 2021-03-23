@@ -52,11 +52,11 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
-        'kreativmedia' => [
-            'driver' => 'local',
-            'root' => public_path(),
-            'visibility' => 'public',
-        ],
+        // 'kreativmedia' => [
+        //     'driver' => 'local',
+        //     'root' => public_path(),
+        //     'visibility' => 'public',
+        // ],
 
     ],
 
