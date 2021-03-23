@@ -9,7 +9,7 @@
             @forelse ($styles as $item)
             <div class="col-span-6 sm:col-span-3 md:col-span-2">
                 <div class="bg-cover bg-center h-48 rounded-lg overflow-hidden"
-                    style="background-image: url({{ asset($item->thumbnail) }});">
+                    style="background-image: url({{ asset('storage/'. $item->thumbnail) }});">
                     <div class="w-full h-full bg-opacity-25 bg-black flex justify-center items-center">
                         <div class="text-white">
                             <h3

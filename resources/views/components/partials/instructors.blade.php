@@ -14,7 +14,7 @@
                         <div class="space-y-4">
                             <div class="aspect-w-3 aspect-h-4">
                                 <div class="bg-cover bg-center object-fill w-full rounded-lg shadow"
-                                    style="background-image: url({{ asset($teacher->portrait) }})">
+                                    style="background-image: url({{ asset('storage/'. $teacher->portrait) }})">
                                     <div class="absolute bottom-0.5 pl-5 pb-2">
                                         <span
                                             class="bg-blue-700 py-1 px-2 text-white text-xl font-bold dark:bg-red-700">
