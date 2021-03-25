@@ -4,11 +4,9 @@
             <select wire:model="style"
                 class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                 <option value="">All Styles</option>
-                <option value="1">Bachata</option>
-                <option value="1">Salsa</option>
-                <option value="2">Line Salsa</option>
-                <option value="3">Cuban Salsa</option>
-                <option value="4">Reggaeton</option>
+                @foreach (\App\Models\Style::all() as $style)
+                <option value="{{ $style->id }}">{{ $style->name }}</option>
+                @endforeach
             </select>
         </div>
         <div>
@@ -37,7 +35,7 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 -mx-4">
         @forelse ($courses as $course)
-        <livewire:course-card :course="$course" />
+        <livewire:course-card :course="$course" :key="$loop->index" />
         @empty
         <div> no courses available</div>
         @endforelse

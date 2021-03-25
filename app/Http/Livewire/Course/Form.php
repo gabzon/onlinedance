@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Course;
 use App\Models\Course;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Str;
 
 class Form extends Component
 {
@@ -61,7 +62,7 @@ class Form extends Component
         ]);
 
         $course->instructors()->attach($this->instructors);
-        // $course->styles()->attach($this->styles);
+        $course->styles()->attach($this->styles);        
 
         session()->flash('success', 'You have created a course successfully');
 
@@ -90,6 +91,7 @@ class Form extends Component
     {
         $this->course->update([
             'title'     => $this->title,
+            'slug'      => $this->slug,
             'tagline'   => $this->tagline,
             'tags'      => $this->tags,
             'excerpt'   => $this->excerpt,
@@ -124,13 +126,17 @@ class Form extends Component
         }
 
         $this->course->instructors()->sync($this->instructors);
+        $this->course->styles()->sync($this->styles);
 
         session()->flash('success', 'You have updated a course successfully');
 
         return redirect(route('course.index'));
     }
 
-
+    public function updatedTitle()
+    {        
+        $this->slug = Str::slug($this->title, '-') . '-' . \Carbon\Carbon::now()->timestamp;
+    }
 
     public function mount($course = null, $action = null)
     {

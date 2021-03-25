@@ -100,6 +100,18 @@
                                 </select>
                             </div>
 
+                            <div class="col-span-6" wire:ignore>
+                                <label for="styles" class="block text-sm font-medium text-gray-700">Styles</label>
+                                <select id="styles" wire:model="styles" class="w-full" multiple>
+                                    @foreach (\App\Models\Style::all() as $style)
+                                    <option value="{{ $style->id }}" @isset($course)
+                                        {{ $course->hasStyle($style->id) ? 'selected' : ''}} @endisset>
+                                        {{ $style->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                         </div>
 
                         <div class="grid grid-cols-4 gap-6 pt-6">
@@ -155,22 +167,23 @@
                                     class="text-red-600 text-sm italic">{{ $message }}</span>@enderror
                             </div>
 
-                            <div class="col-span-6">
+                            {{-- <div class="col-span-6"> --}}
 
-                                @if ($action == 'edit')
+                            {{-- @if ($action == 'edit')
                                 @isset($portrait)
                                 <img src="{{ asset($portrait) }}" class="mb-2">
-                                @endisset
-                                @else
-                                @if ($portrait)
-                                <img src="{{ asset($portrait) }}" class="mb-2">
-                                @endif
-                                @endif
-                                <label for="portrait" class="block text-sm font-medium text-gray-700">Portrait</label>
-                                <input type="file" wire:model="portrait">
-                                @error('portrait')<span
-                                    class="text-red-600 text-sm italic">{{ $message }}</span>@enderror
-                            </div>
+                            @endisset
+                            @else
+                            @if ($portrait)
+                            <img src="{{ asset($portrait) }}" class="mb-2">
+                            @endif
+                            @endif
+                            <label for="portrait" class="block text-sm font-medium text-gray-700">Portrait</label>
+                            <input type="file" wire:model="portrait">
+                            @error('portrait')
+                            <span class="text-red-600 text-sm italic">{{ $message }}</span>
+                            @enderror --}}
+                            {{-- </div> --}}
                         </div>
 
                         <fieldset class="mt-6">
@@ -214,6 +227,10 @@
         $("#instructors").select2();
         $('#instructors').on('change', function(){
             @this.instructors = $(this).val()
+        });
+        $("#styles").select2();
+        $('#styles').on('change', function(){
+            @this.styles = $(this).val()
         });
     </script>
     @endpush

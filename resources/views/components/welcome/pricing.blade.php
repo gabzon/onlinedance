@@ -1,20 +1,26 @@
 <div class="bg-white">
 
-    <div class="bg-gradient-to-b from-blue-50 via-white to-white dark:from-red-50 dark:via-white dark:to-white">
+    <div class="bg-gradient-to-b from-white via-white to-blue-50 dark:from-white dark:via-white dark:to-red-50">
         <!-- Pricing section with single price and feature list -->
         <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
             <div class="pb-16 xl:flex xl:items-center xl:justify-between">
                 <div>
                     <h1 class="text-4xl font-extrabold sm:text-5xl sm:tracking-tight">
-                        <span class="text-gray-900">Everything you need for </span>
-                        <span class="text-blue-600 dark:text-red-600">$99 a month</span>
+                        <span class="text-gray-900">
+                            {{ config('services.school.name') == 'dancefloor' ? 'All our classes for one price':'Everything you need for' }}
+                        </span>
+                        <span class="text-blue-600 dark:text-red-600">
+                            {{ config('services.school.name') == 'dancefloor' ? '€':'$' }}8.33 a month
+                        </span>
                     </h1>
-                    <p class="mt-5 text-xl text-gray-500">Includes every feature we offer plus unlimited projects and
-                        unlimited users.</p>
+                    <p class="mt-5 text-xl text-gray-500">
+                        {{ config('services.school.name') == 'dancefloor' ? 'Access all our classes and new videos each month - Learn & Have Fun!':'Includes every feature we offer plus unlimited projects and unlimited users.' }}
+                    </p>
                 </div>
-                <a href="#"
-                    class="mt-8 w-full bg-blue-600 dark:bg-red-600 dark:hover:bg-red-700 border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 sm:mt-10 sm:w-auto xl:mt-0">Get
-                    started today</a>
+                <a href="{{ route('register') }}"
+                    class="mt-8 w-full bg-blue-600 dark:bg-red-600 dark:hover:bg-red-700 border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 sm:mt-10 sm:w-auto xl:mt-0">
+                    {{ config('services.school.name') == 'dancefloor' ? '7 Day Free Trial':'Get started today' }}
+                </a>
             </div>
             <div class="border-t border-gray-200 pt-16 xl:grid xl:grid-cols-3 xl:gap-x-8">
                 <div>
@@ -139,6 +145,7 @@
         </div>
     </div>
 
+    @if (config('services.school.name') != 'dancefloor')
     <!-- Branded FAQ -->
     <div class="bg-blue-900 dark:bg-red-700">
         <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
@@ -210,6 +217,7 @@
             </div>
         </div>
     </div>
+    @endif
 
     <!-- CTA section -->
     <div class="bg-blue-50 dark:bg-red-50">

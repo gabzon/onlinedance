@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Setting;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -27,3 +28,4 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
     }
 }
+

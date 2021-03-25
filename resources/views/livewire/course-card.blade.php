@@ -2,7 +2,8 @@
     class="flex flex-col bg-white dark:bg-gray-100 mx-4 rounded-3xl shadow-sm hover:shadow-2xl overflow-hidden mb-3 border">
     <div class="rounded-t-3xl">
         <a href="{{ route('course.show', $course) }}">
-            <img src="{{ asset('storage/'. $course->thumbnail) }}" alt="{{ $course->name }}" class="h-72 object-cover">
+            <img src="{{ asset('storage/'. $course->thumbnail) }}" alt="{{ $course->name }}"
+                class="h-72 w-full object-cover">
         </a>
     </div>
     <div class="px-4 py-4">
@@ -70,7 +71,7 @@
                 </button>
                 @endif
             </div>
-            <div class="inline-flex items-center text-gray-600 dark:text-gray-300">
+            <div class="inline-flex items-center">
                 @include('icons.clock')
                 <span class="text-sm ml-2 font-semibold ">{{ rtrim($course->duration,':00') }}</span>
             </div>
