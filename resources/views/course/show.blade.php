@@ -16,7 +16,7 @@
     </x-slot>
 
 
-    <div class="pt-5">
+    <div class="pt-5 bg-blue-900 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden py-8">
                 @if (auth()->user()->hasAccess())
@@ -40,10 +40,17 @@
             <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
                 <div class="col-span-4 sm:col-span-1">
                     <ul class="divide-y divide-gray-200">
+                        @if ($course->tagline)
                         <li class="py-4 flex">
+                            {{ $course->tagline }}
+                        </li>
+                        @endif
+
+
+                        <li class="py-4 flex">
+                            @include('icons.music-genre')
                             @foreach ($course->styles as $item)
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-red-200 dark:text-red-800">{{ $item->name}}</span>
+                            <span class="ml-2">{{ $item->name}}</span>
                             @endforeach
                         </li>
 
@@ -67,18 +74,10 @@
                 </div>
                 <div class="col-span-4 sm:col-span-3">
                     {!! $course->content !!}
+                    <br>
+                    {!! $course->video !!}
                 </div>
             </div>
-
-            <div class="flex justify-between">
-                <div class="h-96">
-                    {{-- <img src="{{ asset($course->thumbnail ) }}" alt="" class="w-full bg-cover"> --}}
-                </div>
-
-            </div>
-            <p class="my-5">
-
-            </p>
         </div>
     </div>
 

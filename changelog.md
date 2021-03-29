@@ -1,4 +1,12 @@
-# v0.0.1: 03.03.2021
+# v0.0.4: 29.03.2021
+* Slug edition fixed
+* Display Tagline in card
+* Display Tagline in course show page
+* Background color behind playlist
+* Footer links and pages (Home, About, Privacy policy, terms of use) 
+* Thumbnail image in course edit page fixed
+
+# v0.0.3: 03.03.2021
 * Images upload debugged
 
 # v0.0.2: 24.02.2021

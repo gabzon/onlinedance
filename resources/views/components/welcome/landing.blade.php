@@ -18,7 +18,7 @@
                             class="block xl:inline">{{ config('services.school.name') != 'dancefloor' ? 'Master' : 'Learn while'}}</span>
 
                         <span
-                            class="block text-blue-600 xl:inline dark:text-red-600">{{ config('services.school.name') != 'dancefloor' ? 'social dances' : 'having Fun'}}</span>
+                            class="block text-blue-600 xl:inline dark:text-red-600">{{ config('services.school.name') != 'dancefloor' ? 'social dances' : 'having fun'}}</span>
                     </h1>
                     <p
                         class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">

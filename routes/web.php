@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StyleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Cashier\SubscriptionBuilder\RedirectToCheckoutResponse;
@@ -22,11 +23,13 @@ use Laravel\Cashier\SubscriptionBuilder\RedirectToCheckoutResponse;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/',[WelcomeController::class, 'index'])->name('welcome');
+Route::get('about',[WelcomeController::class, 'about'])->name('about');
+Route::get('terms',[WelcomeController::class, 'terms'])->name('terms');
+Route::get('policy',[WelcomeController::class, 'policy'])->name('policy');
 
-//
+
+
 
 Route::middleware(['auth:sanctum', 'verified', 'verifyHasAccess'])->group(function(){
     Route::get('/dashboard', [ProfileController::class,'dashboard'])->name('dashboard');

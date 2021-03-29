@@ -9,6 +9,7 @@
     <div class="px-4 py-4">
         <h3 class="text-xl font-semibold text-gray-700">
             {{ $course->title }}
+            <span class="text-gray-500 block text-lg">{{ $course->tagline }}</span>
         </h3>
         <div class="flex justify-between mt-1">
             <span

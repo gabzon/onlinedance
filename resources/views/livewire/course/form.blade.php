@@ -66,7 +66,7 @@
 
                             <div class="sm:col-span-6">
                                 <label for="video" class="block text-sm font-medium text-gray-700">
-                                    Video
+                                    Teaser Video - Trailer
                                 </label>
                                 <div class="mt-1">
                                     <textarea wire:model="video" rows="5"
@@ -153,7 +153,7 @@
 
                                 @if ($action == 'edit')
                                 @isset($thumbnail)
-                                <img src="{{ asset($thumbnail) }}" class="mb-2">
+                                <img src="{{ asset('storage/'. $thumbnail) }}" class="mb-2">
                                 @endisset
                                 @else
                                 @if ($thumbnail)
