@@ -5,6 +5,7 @@
 * Background color behind playlist
 * Footer links and pages (Home, About, Privacy policy, terms of use) 
 * Thumbnail image in course edit page fixed
+* email verification
 
 # v0.0.3: 03.03.2021
 * Images upload debugged
