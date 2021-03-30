@@ -25,13 +25,13 @@
 
                     <div class="col-span-3 sm:col-span-1">
                         <label for="yearly_price" class="block text-sm font-medium text-gray-700">Yearly Price</label>
-                        <input type="number" wire:model="yearly_price"
+                        <input type="number" wire:model="yearly_price" step=".01"
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
                     </div>
 
                     <div class="col-span-3 sm:col-span-1">
                         <label for="monthly_price" class="block text-sm font-medium text-gray-700">Monthly Price</label>
-                        <input type="number" wire:model="monthly_price"
+                        <input type="number" wire:model="monthly_price" step=".01"
                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm">
                     </div>
 
@@ -46,7 +46,7 @@
                         </select>
                     </div>
 
-                    <div class="col-span-3 sm:col-span-2">
+                    {{-- <div class="col-span-3 sm:col-span-2">
                         <label for="payment_gateway" class="block text-sm font-medium text-gray-700">Payment
                             Gateway</label>
                         <select wire:model="payment_gateway"
@@ -55,7 +55,7 @@
                             <option value="stripe">Stripe</option>
                             <option value="mollie">Mollie</option>
                         </select>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">

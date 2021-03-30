@@ -29,7 +29,7 @@
         <div class="flex items-center">
             <div class="flex -space-x-2 overflow-hidden">
                 @foreach ($course->instructors as $i)
-                <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="{{ asset($i->avatar)}}"
+                <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="{{ asset('storage/'.$i->avatar)}}"
                     alt="{{ $i->first_name }}">
                 @endforeach
             </div>

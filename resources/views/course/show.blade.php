@@ -63,7 +63,7 @@
 
                         <li class="py-4 flex items-center">
                             @foreach ($course->instructors as $teacher)
-                            <img class="h-8 w-8 rounded-full" src="{{ asset($teacher->avatar) }}" alt="">
+                            <img class="h-8 w-8 rounded-full" src="{{ asset('storage/' . $teacher->avatar) }}" alt="">
                             <div class="ml-3">
                                 <p class="text-sm font-medium text-gray-900">{{ $teacher->first_name }}
                                     {{ $teacher->last_name }}</p>

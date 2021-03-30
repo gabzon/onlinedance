@@ -6,7 +6,7 @@ return [
      * The default webhook url is called by Mollie on payment status updates. You can use either a relative or
      * absolute url.
      */
-    'webhook_url' => 'https://onlinedance.sharedwithexpose.com/webhooks/mollie',
+    'webhook_url' => 'webhooks/mollie',
 
     /**
      * The default locale passed to Mollie for configuring the checkout screen. Set to null to let Mollie handle it for
@@ -43,7 +43,7 @@ return [
          * The first payment webhook url is called by Mollie on first payment status updates. Can be overridden per
          * Plan. You can use either a relative or absolute url.
          */
-        'webhook_url' => 'https://onlinedance.sharedwithexpose.com/webhooks/mollie/first-payment',
+        'webhook_url' => 'webhooks/mollie/first-payment',
         
         /**
          * A comma-separated list of allowed Mollie payment methods for the first payment. Make sure the methods are
@@ -75,7 +75,7 @@ return [
              * An ISO 4217 currency code. The currencies supported depend on the payment methods that are enabled on
              * your Mollie account.
              */
-            'currency' => 'USD',
+            'currency' => config('settings.currency') ?? 'USD',
         ],
 
         /**

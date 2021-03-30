@@ -7,10 +7,11 @@
                 <div>
                     <h1 class="text-4xl font-extrabold sm:text-5xl sm:tracking-tight">
                         <span class="text-gray-900">
-                            {{ config('services.school.name') == 'dancefloor' ? 'All our classes for one price':'Everything you need for' }}
+                            {{ config('services.school.name') == 'dancefloor' ? 'All our classes for only':'Everything you need for' }}
                         </span>
                         <span class="text-blue-600 dark:text-red-600">
-                            {{ config('services.school.name') == 'dancefloor' ? '€':'$' }}8.33 a month
+                            {{ config('settings.currency') == 'EUR' ? '€':'$' }}
+                            {{ config('settings.monthly_price')}} a month
                         </span>
                     </h1>
                     <p class="mt-5 text-xl text-gray-500">
