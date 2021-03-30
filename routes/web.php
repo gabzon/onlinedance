@@ -27,8 +27,8 @@ Route::get('/',[WelcomeController::class, 'index'])->name('welcome');
 Route::get('about',[WelcomeController::class, 'about'])->name('about');
 Route::get('terms',[WelcomeController::class, 'terms'])->name('terms');
 Route::get('policy',[WelcomeController::class, 'policy'])->name('policy');
-
-
+Route::get('email-form',[WelcomeController::class, 'emailForm'])->name('email-form');
+Route::post('send-email',[WelcomeController::class, 'sendEmail'])->name('send-email');
 
 
 Route::middleware(['auth:sanctum', 'verified', 'verifyHasAccess'])->group(function(){
