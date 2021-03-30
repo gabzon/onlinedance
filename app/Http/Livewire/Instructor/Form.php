@@ -31,7 +31,7 @@ class Form extends Component
     public $youtube;
     public $phone;
     public $email;
-    public $thumbnailTemp;
+    public $avatarTemp;
     public $portraitTemp;
     public $imageTemp;
     public $styles;
@@ -52,7 +52,7 @@ class Form extends Component
             'nickname'  => $this->nickname,
             'slug'      => $this->slug,
             'bio'       => $this->bio,
-            'image'     => $this->image,
+            'image'     => $this->imageTemp,
             'portrait'  => $this->portrait,
             'avatar'    => $this->avatar,
             'video'     => $this->video,
@@ -114,32 +114,32 @@ class Form extends Component
         return redirect(route('instructor.index'));
     }
 
-    public function updatedImage()
+    public function updatedAvatar()
     {
         $this->validate([
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ]);
-        $this->imageTemp = $this->image->store('instructors');
-        $this->image = $this->imageTemp;
+        $this->avatarTemp = $this->avatar->store('instructors');
+        $this->avatar = $this->avatarTemp;
     }
 
-    public function updatedThumbnail()
-    {
-        $this->validate([
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-        ]);
-        $this->thumbnailTemp = $this->thumbnail->store('instructors');
-        $this->thumbnail = $this->thumbnailTemp;
-    }
+    // public function updatedThumbnail()
+    // {
+    //     $this->validate([
+    //         'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+    //     ]);
+    //     $this->thumbnailTemp = $this->thumbnail->store('instructors');
+    //     $this->thumbnail = $this->thumbnailTemp;
+    // }
 
-    public function updatedPortrait()
-    {
-        $this->validate([
-            'portrait'  => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-        ]);
-        $this->portraitTemp = $this->portrait->store('instructors');
-        $this->portrait = $this->portraitTemp;
-    }
+    // public function updatedPortrait()
+    // {
+    //     $this->validate([
+    //         'portrait'  => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+    //     ]);
+    //     $this->portraitTemp = $this->portrait->store('instructors');
+    //     $this->portrait = $this->portraitTemp;
+    // }
 
     public function mount($instructor = null, $action = null)
     {

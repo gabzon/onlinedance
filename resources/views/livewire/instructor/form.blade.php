@@ -176,65 +176,68 @@
 
                         <div class="grid grid-cols-6 gap-6 pt-6">
 
-                            <div class="col-span-6 sm:col-span-2 mb-1">
-                                @isset($image)
-                                @isset($action)
-                                <img src="{{ asset($instructor->image) }}" class="mb-2">
+
+                            <div class="col-span-6">
+
+                                @if ($action == 'edit')
+                                @isset($avatar)
+                                <img src="{{ asset('storage/'. $avatar) }}" class="mb-2">
+                                @endisset
                                 @else
-                                <img src="{{ $image->temporaryUrl() }}" class="mb-2">
-                                @endisset
-                                @endisset
-                                <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
-                                <input type="file" wire:model="image">
-                                @error('image')<span class="text-red-600 text-sm italic">{{ $message }}</span>@enderror
+                                @if ($avatar)
+                                <img src="{{ asset('storage/' . $avatar) }}" class="mb-2">
+                                @endif
+                                @endif
+
+                                <label for="avatar" class="block text-sm font-medium text-gray-700">Avatar</label>
+                                <input type="file" wire:model="avatar">
+                                @error('avatar')<span class="text-red-600 text-sm italic">{{ $message }}</span>@enderror
                             </div>
 
-                            <div class="col-span-6 sm:col-span-2 mb-1">
+                            {{-- <div class="col-span-6 sm:col-span-2 mb-1">
                                 @isset($thumbnail)
                                 @isset($action)
                                 <img src="{{ asset($instructor->thumbnail) }}" class="mb-2">
-                                @else
-                                <img src="{{ asset($thumbnailTemp) }}" class="mb-2">
-                                @endisset
-                                @endisset
-                                <label for="thumbnail" class="block text-sm font-medium text-gray-700">Thumbnail</label>
-                                <input type="file" wire:model="thumbnail">
-                                @error('thumbnail')<span
-                                    class="text-red-600 text-sm italic">{{ $message }}</span>@enderror
-                            </div>
+                            @else
+                            <img src="{{ asset($thumbnailTemp) }}" class="mb-2">
+                            @endisset
+                            @endisset
+                            <label for="thumbnail" class="block text-sm font-medium text-gray-700">Thumbnail</label>
+                            <input type="file" wire:model="thumbnail">
+                            @error('thumbnail')<span class="text-red-600 text-sm italic">{{ $message }}</span>@enderror
+                        </div> --}}
 
-                            <div class="col-span-6 sm:col-span-2 mb-1">
+                        {{-- <div class="col-span-6 sm:col-span-2 mb-1">
                                 @isset($portrait)
                                 @isset($action)
                                 <img src="{{ asset($instructor->portrait) }}" class="mb-2">
-                                @else
-                                <img src="{{ asset($portraitTemp) }}" class="mb-2">
-                                @endisset
-                                @endisset
-                                <label for="portrait" class="block text-sm font-medium text-gray-700">Portrait</label>
-                                <input type="file" wire:model="portrait">
-                                @error('portrait')<span
-                                    class="text-red-600 text-sm italic">{{ $message }}</span>@enderror
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                        <x-jet-button>
-                            {{ __('Save') }}
-                        </x-jet-button>
-                    </div>
+                        @else
+                        <img src="{{ asset($portraitTemp) }}" class="mb-2">
+                        @endisset
+                        @endisset
+                        <label for="portrait" class="block text-sm font-medium text-gray-700">Portrait</label>
+                        <input type="file" wire:model="portrait">
+                        @error('portrait')<span class="text-red-600 text-sm italic">{{ $message }}</span>@enderror
+                    </div> --}}
                 </div>
-            </form>
+
+        </div>
+        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <x-jet-button>
+                {{ __('Save') }}
+            </x-jet-button>
         </div>
     </div>
+    </form>
+</div>
+</div>
 
-    @push('scripts')
-    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
-        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-    <script>
-        $("#styles").select2();
+@push('scripts')
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script>
+    $("#styles").select2();
         $('#styles').on('change', function(){
             @this.styles = $(this).val()
         });
@@ -242,6 +245,6 @@
         $('#courses').on('change', function(){
             @this.courses = $(this).val()
         });
-    </script>
-    @endpush
+</script>
+@endpush
 </div>

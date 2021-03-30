@@ -54,7 +54,7 @@
                                                 <div>
                                                     @if ($item->avatar)
                                                     <img class="inline-block h-9 w-9 rounded-full"
-                                                        src="{{ asset($item->avatar) }}" alt="">
+                                                        src="{{ asset('storage/' . $item->avatar) }}" alt="">
                                                     @endif
                                                 </div>
                                                 <div class="ml-3">
