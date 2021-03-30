@@ -2,3 +2,5 @@
 * https://dev.to/fractalbit/deploy-a-laravel-7-app-to-shared-hosting-4eac (to try)
 * https://laracasts.com/discuss/channels/laravel/laravel-58-storage-issue-on-plesk-server (to try)
 * https://support.plesk.com/hc/en-us/articles/213951705-Website-on-Plesk-shows-403-Forbidden-Symbolic-link-not-allowed-or-link-target-not-accessible  
+* https://emmanueldmlr.medium.com/laravel-and-mailgun-the-easiest-integration-1618e4794e02
+* https://www.youtube.com/watch?v=vcQD9tHy6Gg
