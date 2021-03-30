@@ -11,10 +11,15 @@
                         </span>
                         <span class="text-blue-600 dark:text-red-600">
                             {{ config('settings.currency') == 'EUR' ? '€':'$' }}
-                            {{ config('settings.monthly_price')}} a month
+                            {{ config('settings.yearly_price')}} per year
                         </span>
                     </h1>
                     <p class="mt-5 text-xl text-gray-500">
+                        <span class="text-blue-600 dark:text-red-600">
+                            or {{ config('settings.currency') == 'EUR' ? '€':'$' }}
+                            {{ config('settings.monthly_price') }}
+                            a month.
+                        </span>
                         {{ config('services.school.name') == 'dancefloor' ? 'Access all our classes and new videos each month - Learn & Have Fun!':'Includes every feature we offer plus unlimited projects and unlimited users.' }}
                     </p>
                 </div>
