@@ -35,7 +35,7 @@ class WelcomeController extends Controller
     public function sendEmail(Request $request)
     {
         Mail::raw($request->message, function ($message) {                    
-            $message->to('gabriel.zambrano@protonmail.com', 'Gabriel Zambrano');                                
+            $message->to('gab.zambrano@gmail.com', 'Gabriel Zambrano');                                
             $message->subject('Finally!');                        
         });
 
