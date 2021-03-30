@@ -84,6 +84,8 @@ class Form extends Component
             'beginning'    => 'nullable|date',
         ]);
 
+        
+
         $this->instructor->update([
             'first_name'=> $this->first_name,
             'last_name' => $this->last_name,
@@ -106,14 +108,20 @@ class Form extends Component
             'email'     => $this->email,
         ]);
         
-        $this->instructor->styles()->sync($this->styles);
-        $this->instructor->courses()->sync($this->courses);
-
+        if ($this->styles) {
+            $this->instructor->styles()->sync($this->styles);
+        }
+        
+        if ($this->courses) {
+            $this->instructor->courses()->sync($this->courses);
+        }
+        
         session()->flash('success', 'Instructor updated successfully.');
 
         return redirect(route('instructor.index'));
     }
 
+    
     public function updatedAvatar()
     {
         $this->validate([

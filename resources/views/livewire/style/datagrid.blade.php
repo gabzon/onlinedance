@@ -42,7 +42,8 @@
                                 @forelse ($styles as $item)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                        <a href="{{ route('style.show', $item) }}" class="hover:text-blue-700">
+                                        <a href="{{ route('style.show', $item) }}"
+                                            class="hover:text-blue-700 dark:hover:text-red-700">
                                             {{ $item->name }}
                                         </a>
                                     </td>
@@ -50,10 +51,10 @@
                                         {{ $item->slug }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ $item->description }}
+                                        {{ Str::limit($item->description, 50) }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        23
+                                        {{ count($item->courses)}}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <div class="flex justify-end items-center">

@@ -1,3 +1,10 @@
+# v0.0.5: 30.03.2021
+* style datagrid reduced size of description to 50char
+* style datagrid delete button
+* instructors avatar fixed
+* style datagrid display number of associated courses
+* 
+
 # v0.0.4: 29.03.2021
 * Slug edition fixed
 * Display Tagline in card
