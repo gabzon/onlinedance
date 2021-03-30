@@ -34,9 +34,23 @@ class WelcomeController extends Controller
 
     public function sendEmail(Request $request)
     {
-        Mail::raw($request->message, function($message){            
-            $message->to('gab.zambrano@gmail.com')->subject('Finally!');
+        Mail::raw($request->message, function ($message) {                    
+            $message->to('gabriel.zambrano@protonmail.com', 'Gabriel Zambrano');                                
+            $message->subject('Finally!');                        
         });
+
+        if( count(Mail::failures()) > 0 ) {
+
+            echo "There was one or more failures. They were: <br />";
+         
+            foreach(Mail::failures() as $email_address) {
+                echo " - $email_address <br />";
+             }
+         
+         } 
+        //  else {
+        //      echo "No errors, all sent successfully!";
+        //  }
         
         return redirect()->route('email-form')->with('success', 'Email sent!');
     }
