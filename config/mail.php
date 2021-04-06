@@ -71,10 +71,6 @@ return [
             'transport' => 'array',
         ],
 
-        'mailgun' => [
-            'transport' => 'mailgun',
-        ],
-
     ],
 
     /*
@@ -89,8 +85,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'support@dancefloor.online'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'team@dancefloor.online'),
+        'name' => env('MAIL_FROM_NAME', config('app.name')),
     ],
 
     /*
