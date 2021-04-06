@@ -14,6 +14,13 @@
             </div>
         </div>
     </div>
+
+    @if (config('services.school.name') == 'dancefloor')
+    <div class="pt-12">
+        <x-welcome.testimonials />
+    </div>
+    @endif
+
     @if (config('services.school.name') != 'dancefloor')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -25,7 +32,7 @@
     @endif
 
 
-    <div class="pt-12">
+    <div class="">
         <div id="pricing" class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <x-welcome.pricing />
         </div>

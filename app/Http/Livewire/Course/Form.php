@@ -61,9 +61,13 @@ class Form extends Component
             'facebook_pixel'=> $this->facebook_pixel,
         ]);
 
-        $course->instructors()->attach($this->instructors);
-        $course->styles()->attach($this->styles);        
-
+        if ($this->instructors) {
+            $course->instructors()->attach($this->instructors);    
+        }
+        if ($this->styles) {
+            $course->styles()->attach($this->styles);
+        }
+        
         session()->flash('success', 'You have created a course successfully');
 
         return redirect(route('course.index'));
@@ -125,9 +129,13 @@ class Form extends Component
             }
         }
 
-        $this->course->instructors()->sync($this->instructors);
-        $this->course->styles()->sync($this->styles);
-
+        if ($this->instructors) {
+            $this->course->instructors()->sync($this->instructors);
+        }
+        if ($this->styles) {
+            $this->course->styles()->sync($this->styles);
+        }
+            
         session()->flash('success', 'You have updated a course successfully');
 
         return redirect(route('course.index'));

@@ -19,11 +19,11 @@
                 </h2>
                 <p
                     class="mt-1 text-4xl font-extrabold text-gray-100 dark:text-gray-100 sm:text-5xl sm:tracking-tight lg:text-6xl">
-                    Take control of your dancing skills.
+                    {{ config('services.school.name') == 'dancefloor' ? 'STEP BY STEP, MOVE BY MOVE':'Take control of your dancing skills.'}}
                 </p>
                 <p class="max-w-xl mt-5 mx-auto text-xl text-gray-200 dark:text-gray-300 ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis deserunt laborum voluptatem dolorum
-                    doloremque atque deleniti.
+                    {{ config('services.school.name') == 'dancefloor'? 'NEW VIDEOS EACH MONTH!, START YOUR DANCE JOURNEY!':'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis deserunt laborum voluptatem dolorum
+                    doloremque atque deleniti.'}}
                 </p>
             </div>
         </div>

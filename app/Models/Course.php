@@ -73,11 +73,11 @@ class Course extends Model
     public function scopeLevel($query, $level)
     {
         if (!empty($level)) {
-            return $query->where('level', $level);
+            return $query->where('level', 'LIKE', "%{$level}%");
         }
         return $query;
     }
-
+    
     public function scopeType($query, $type)
     {
         if (!empty($type)) {

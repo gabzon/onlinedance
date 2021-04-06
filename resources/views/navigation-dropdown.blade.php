@@ -36,15 +36,18 @@
                     <x-jet-nav-link href="#styles" :active="request()->routeIs('styles')">
                         {{ __('Styles') }}
                     </x-jet-nav-link>
+
+                    @if (config('services.school.name') != 'dancefloor' )
                     <x-jet-nav-link href="#instructors" :active="request()->routeIs('instructors')">
                         {{ __('Instructors') }}
                     </x-jet-nav-link>
                     @endif
-                    @guest
+
                     <x-jet-nav-link href="#pricing" :active="request()->routeIs('instructors')">
                         {{ __('Pricing') }}
                     </x-jet-nav-link>
-                    @endguest
+                    @endif
+
                 </div>
             </div>
 

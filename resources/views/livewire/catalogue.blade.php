@@ -18,8 +18,8 @@
                 <option value="advanced">Advanced</option>
                 <option value="pro">Pro</option>
             </select>
+            {{-- {{ $level }} --}}
         </div>
-
 
         <div>
             <select wire:model="type"
@@ -35,7 +35,90 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 -mx-4">
         @forelse ($courses as $course)
-        <livewire:course-card :course="$course" :key="$loop->index" />
+        <div
+            class="flex flex-col bg-white dark:bg-gray-100 mx-4 rounded-3xl shadow-sm hover:shadow-2xl overflow-hidden mb-3 border">
+            <div class="rounded-t-3xl">
+                <a href="{{ route('course.show', $course) }}">
+                    <img src="{{ asset('storage/'. $course->thumbnail) }}" alt="{{ $course->name }}"
+                        class="h-72 w-full object-cover">
+                </a>
+            </div>
+            <div class="px-4 py-4">
+                <h3 class="text-xl font-semibold text-gray-700">
+                    {{ $course->title }}
+                    <span class="text-gray-500 block text-lg">{{ $course->tagline }}</span>
+                </h3>
+                <div class="flex justify-between mt-1">
+                    <span
+                        class="inline-flex items-center px-2.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-red-700 dark:text-red-200">
+                        {{ $course->level }}
+                    </span>
+                    @if ($course->is_live)
+                    <span
+                        class="inline-flex items-center px-2.5 rounded-full text-xs font-medium bg-red-800 text-red-100 dark:bg-red-700 dark:text-red-200">Live</span>
+                    @endif
+                </div>
+
+                <p class="text-sm text-gray-500 my-2">
+                    {{ $course->excerpt }}
+                </p>
+
+                <div class="flex items-center">
+                    <div class="flex -space-x-2 overflow-hidden">
+                        @foreach ($course->instructors as $i)
+                        <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white"
+                            src="{{ asset('storage/'.$i->avatar)}}" alt="{{ $i->first_name }}">
+                        @endforeach
+                    </div>
+                    <div class="ml-2">
+                        @foreach ($course->instructors as $i)
+                        @if (!$loop->last)
+                        <span class="text-gray-600 text-xs">
+                            {{ $i->first_name }}{{ count($course->instructors) == 2 ? ' y':','}}
+                        </span>
+                        @else
+                        <span class="text-gray-600 text-xs">{{ $i->first_name }}</span>
+                        @endif
+                        @endforeach
+                    </div>
+
+                </div>
+
+            </div>
+            <footer class="mt-auto px-4 pb-2">
+                <div class="flex justify-between">
+                    <div>
+                        @if ($course->favorited())
+                        <button wire:click="unfavorite({{$course->id}})"
+                            class="text-blue-500 hover:text-blue-400 dark:text-red-600 dark:hover:text-red-500">
+                            @include('icons.heart-fill')
+                        </button>
+                        @else
+                        <button wire:click="favorite({{$course->id}})"
+                            class="hover:text-blue-500 dark:hover:text-red-600">
+                            @include('icons.heart')
+                        </button>
+                        @endif
+                        @if ($course->bookmarked())
+                        <button wire:click="undo({{$course->id}})"
+                            class="text-blue-500 hover:text-blue-400 dark:text-red-600 dark:hover:text-red-500 mx-1">
+                            @include('icons.bookmark-star-fill')
+                        </button>
+                        @else
+                        <button wire:click="todo({{$course->id}})"
+                            class="hover:text-blue-500 dark:hover:text-red-600 mx-1">
+                            @include('icons.bookmark-star')
+                        </button>
+                        @endif
+                    </div>
+                    <div class="inline-flex items-center">
+                        @include('icons.clock')
+                        <span class="text-sm ml-2 font-semibold ">{{ rtrim($course->duration,':00') }}</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        {{-- <livewire:course-card :course="$course" :key="$loop->index" /> --}}
         @empty
         <div> no courses available</div>
         @endforelse

@@ -1,9 +1,21 @@
+# v0.0.6: 30.03.2021
+* Catalog Filters debugged
+* Course Edit styles & teachers disappered after save. Debugged!
+* Remove Instructors from menu bar
+* Added pricing to menu bar
+* DF: Testimonials copied from dancefloor.family 
+* DF: Testimonials edited text from Isabel
+* DF: Dashboard hero text added
+* DF: Benefits added to pricing section
+* DF: Pricing table added to pricing section
+* Checkout page pricing updated
+* DF: checkout page red color
+
 # v0.0.5: 30.03.2021
 * style datagrid reduced size of description to 50char
 * style datagrid delete button
 * instructors avatar fixed
 * style datagrid display number of associated courses
-* 
 
 # v0.0.4: 29.03.2021
 * Slug edition fixed

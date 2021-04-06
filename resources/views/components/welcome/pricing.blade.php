@@ -10,141 +10,190 @@
                             {{ config('services.school.name') == 'dancefloor' ? 'All our classes for only':'Everything you need for' }}
                         </span>
                         <span class="text-blue-600 dark:text-red-600">
-                            {{ config('settings.currency') == 'EUR' ? '€':'$' }}
-                            {{ config('settings.yearly_price')}} per year
+                            {{-- {{ config('settings.currency') == 'EUR' ? '€':'$' }} --}}
+                            {{-- {{ config('settings.yearly_price')}} per year --}}
                         </span>
                     </h1>
                     <p class="mt-5 text-xl text-gray-500">
-                        <span class="text-blue-600 dark:text-red-600">
+                        {{-- <span class="text-blue-600 dark:text-red-600">
                             or {{ config('settings.currency') == 'EUR' ? '€':'$' }}
-                            {{ config('settings.monthly_price') }}
-                            a month.
-                        </span>
+                        {{ config('settings.monthly_price') }}
+                        a month.
+                        </span> --}}
                         {{ config('services.school.name') == 'dancefloor' ? 'Access all our classes and new videos each month - Learn & Have Fun!':'Includes every feature we offer plus unlimited projects and unlimited users.' }}
                     </p>
                 </div>
-                <a href="{{ route('register') }}"
-                    class="mt-8 w-full bg-blue-600 dark:bg-red-600 dark:hover:bg-red-700 border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 sm:mt-10 sm:w-auto xl:mt-0">
-                    {{ config('services.school.name') == 'dancefloor' ? '7 Day Free Trial':'Get started today' }}
-                </a>
+                <div>
+                    <div>
+                        <dl
+                            class="mt-5 grid grid-cols-1 rounded-lg bg-white overflow-hidden shadow divide-y divide-gray-200 md:grid-cols-2 md:divide-y-0 md:divide-x">
+                            <div class="px-4 py-5 sm:p-6 text-center">
+                                <dt class="text-base text-center font-bold text-gray-900">
+                                    Monthly
+                                </dt>
+                                <dd
+                                    class="mt-1 flex flex-col justify-center items-baseline md:block lg:flex text-xl font-semibold text-blue-600 dark:text-red-600">
+                                    <div>
+                                        {{ config('settings.currency') == 'EUR' ? '€':'$' }}
+                                        {{ config('settings.monthly_price')}}/mo
+                                        <span class="flex justify-center text-sm text-gray-500">
+                                        </span>
+                                    </div>
+                                </dd>
+                            </div>
+
+                            <div class="px-4 py-5 sm:p-6">
+                                <dt class="text-base text-center font-bold text-gray-900">
+                                    Yearly
+                                </dt>
+                                <dd
+                                    class="mt-1 flex flex-col justify-center items-baseline md:block lg:flex text-xl font-semibold text-blue-600 dark:text-red-600">
+                                    <div>
+                                        {{ config('settings.currency') == 'EUR' ? '€':'$' }}
+                                        {{ config('services.school.name') == 'dancefloor' ? '14.9':'8.9' }}/mo
+                                        <span class="flex justify-center text-sm text-gray-500">
+                                            {{ config('settings.currency') == 'EUR' ? '€':'$' }}
+                                            {{ config('settings.yearly_price')}} yearly
+                                        </span>
+                                    </div>
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <div class="flex justify-center mt-6">
+                        <a href="{{ route('register') }}"
+                            class="mt-8 w-full bg-blue-600 dark:bg-red-600 dark:hover:bg-red-700 border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 sm:mt-10 sm:w-auto xl:mt-0">
+                            {{ config('services.school.name') == 'dancefloor' ? '7 Day Free Trial':'Get started today' }}
+                        </a>
+                    </div>
+
+                </div>
             </div>
             <div class="border-t border-gray-200 pt-16 xl:grid xl:grid-cols-3 xl:gap-x-8">
                 <div>
                     <h2 class="text-base font-semibold text-blue-600 uppercase tracking-wide dark:text-red-600">
-                        Everything you need</h2>
-                    <p class="mt-2 text-3xl font-extrabold text-gray-900">All-in-one platform</p>
-                    <p class="mt-4 text-lg text-gray-500">Ac euismod vel sit maecenas id pellentesque eu sed
+                        {{ config('services.school.name') == 'dancefloor' ? 'WHAT WILL YOU FIND IN' : 'Everything you need' }}
+                    </h2>
+                    <p class="mt-2 text-3xl font-extrabold text-gray-900">
+                        {{ config('services.school.name') == 'dancefloor' ? 'YOUR ONLINE EXPERIENCE?' : 'All-in-one platform'}}
+                    </p>
+                    <p class="mt-4 text-lg text-gray-500">
+                        @if (config('services.school.name') == 'dancefloor')
+                        <b>For more than 10 years, Dancefloor has been invited around the world to teach, perform &
+                            share its pedagogy.</b>
+                        Bring people together, share our passion and see students progress is what
+                        we are looking forward to do!
+                        @else
+                        Ac euismod vel sit maecenas id pellentesque eu sed
                         consectetur. Malesuada adipiscing sagittis vel nulla nec. Urna, sed a lectus elementum blandit
-                        et.</p>
+                        et.
+                        @endif
+                    </p>
                 </div>
                 <div class="mt-4 sm:mt-8 md:mt-10 md:grid md:grid-cols-2 md:gap-x-8 xl:mt-0 xl:col-span-2">
                     <ul class="divide-y divide-gray-200">
+                        @if (config('services.school.name') == 'dancefloor')
                         <li class="py-4 flex md:py-0 md:pb-4">
-                            <!-- Heroicon name: check -->
-                            <svg class="flex-shrink-0 h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span class="ml-3 text-base text-gray-500">Vitae in pulvinar odio id utobortis in
-                                inter.</span>
+                            @include('icons.check')
+                            <span class="ml-3 text-base text-gray-500">
+                                Whether you are beginner or advanced dancer we give you all the tools to progress at
+                                your own rhythm!
+                            </span>
                         </li>
-
+                        <li class="py-4 flex md:py-0 md:pb-4">
+                            @include('icons.check')
+                            <span class="ml-3 text-base text-gray-500">
+                                Improve your foundations step by step with our dedicated programs, choreographies &
+                                follow along videos
+                            </span>
+                        </li>
+                        <li class="py-4 flex md:py-0 md:pb-4">
+                            @include('icons.check')
+                            <span class="ml-3 text-base text-gray-500">
+                                Learn and improve in different styles: Salsa, Hiphop, Afro Cuban, Lady styling...etc.
+                            </span>
+                        </li>
+                        @else
+                        <li class="py-4 flex md:py-0 md:pb-4">
+                            @include('icons.check')
+                            <span class="ml-3 text-base text-gray-500">
+                                Vitae in pulvinar odio id utobortis in inter.
+                            </span>
+                        </li>
                         <li class="py-4 flex">
-                            <!-- Heroicon name: check -->
-                            <svg class="flex-shrink-0 h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
+                            @include('icons.check')
                             <span class="ml-3 text-base text-gray-500">Sed sed id viverra viverra augue eget
                                 massa.</span>
                         </li>
-
                         <li class="py-4 flex">
-                            <!-- Heroicon name: check -->
-                            <svg class="flex-shrink-0 h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
+                            @include('icons.check')
                             <span class="ml-3 text-base text-gray-500">Urna, gravida amet, a, integer venenatis.</span>
                         </li>
 
                         <li class="py-4 flex">
-                            <!-- Heroicon name: check -->
-                            <svg class="flex-shrink-0 h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
+                            @include('icons.check')
                             <span class="ml-3 text-base text-gray-500">Lobortis sed pharetra amet vitae eleifend.</span>
                         </li>
 
                         <li class="py-4 flex">
-                            <!-- Heroicon name: check -->
-                            <svg class="flex-shrink-0 h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
+                            @include('icons.check')
                             <span class="ml-3 text-base text-gray-500">Ullamcorper blandit a consequat donec elit
                                 aoreet.</span>
                         </li>
+                        @endif
                     </ul>
                     <ul class="border-t border-gray-200 divide-y divide-gray-200 md:border-t-0">
+                        @if (config('services.school.name') == 'dancefloor')
                         <li class="py-4 flex md:border-t-0 md:py-0 md:pb-4">
-                            <!-- Heroicon name: check -->
-                            <svg class="flex-shrink-0 h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span class="ml-3 text-base text-gray-500">Vitae in pulvinar odio id utobortis in
-                                inter.</span>
+                            @include('icons.check')
+                            <span class="ml-3 text-base text-gray-500">Learn to combine different styles and give your
+                                dance a new energy!</span>
                         </li>
 
                         <li class="py-4 flex">
-                            <!-- Heroicon name: check -->
-                            <svg class="flex-shrink-0 h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
+                            @include('icons.check')
+                            <span class="ml-3 text-base text-gray-500">Improve your own experience. After each class
+                                you can give your feedback and suggestions!</span>
+                        </li>
+
+                        <li class="py-4 flex">
+                            @include('icons.check')
+                            <span class="ml-3 text-base text-gray-500">
+                                Discover new videos each month & access our private facebook group so you can
+                                communicate and
+                                exchange with others !
+                            </span>
+                        </li>
+                        @else
+                        <li class="py-4 flex md:border-t-0 md:py-0 md:pb-4">
+                            @include('icons.check')
+                            <span class="ml-3 text-base text-gray-500">Vitae in pulvinar odio id utobortis in
+                                inter.</span>
+                        </li>
+                        <li class="py-4 flex">
+                            @include('icons.check')
                             <span class="ml-3 text-base text-gray-500">Sed sed id viverra viverra augue eget
                                 massa.</span>
                         </li>
 
                         <li class="py-4 flex">
-                            <!-- Heroicon name: check -->
-                            <svg class="flex-shrink-0 h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
+                            @include('icons.check')
                             <span class="ml-3 text-base text-gray-500">Urna, gravida amet, a, integer venenatis.</span>
                         </li>
 
                         <li class="py-4 flex">
-                            <!-- Heroicon name: check -->
-                            <svg class="flex-shrink-0 h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
+                            @include('icons.check')
                             <span class="ml-3 text-base text-gray-500">Lobortis sed pharetra amet vitae eleifend.</span>
                         </li>
 
                         <li class="py-4 flex">
-                            <!-- Heroicon name: check -->
-                            <svg class="flex-shrink-0 h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
+                            @include('icons.check')
                             <span class="ml-3 text-base text-gray-500">Ullamcorper blandit a consequat donec elit
                                 aoreet.</span>
                         </li>
+                        @endif
+
                     </ul>
                 </div>
             </div>
@@ -236,7 +285,7 @@
                 <div class="inline-flex rounded-md shadow">
                     <a href="{{ route('register') }}"
                         class="bg-blue-600 dark:bg-red-600 dark:hover:bg-red-700 border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base font-medium text-white hover:bg-blue-700">
-                        Get started
+                        {{ config('services.school.name') == 'dancefloor' ? '7 Day Free Trial':'Get started' }}
                     </a>
                 </div>
             </div>
