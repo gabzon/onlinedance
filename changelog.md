@@ -1,3 +1,10 @@
+# v0.0.7: 12.04.2021
+* DF: About link in footer removed
+* DF: testimonials avatars added
+* DF: testimonials: reduced text size in mobile
+* DF: Missing text (title and tagline) in Style section in the Home page
+* DF: Pricing centered fixed
+
 # v0.0.6: 30.03.2021
 * Catalog Filters debugged
 * Course Edit styles & teachers disappered after save. Debugged!

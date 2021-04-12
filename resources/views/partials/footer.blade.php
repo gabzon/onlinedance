@@ -9,12 +9,15 @@
                 </a>
             </div>
 
+            @if (config('services.school.name') != "dancefloor")
             <div class="px-5 py-2">
                 <a href="{{ route('about')}}"
                     class="text-base text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-500">
                     About
                 </a>
             </div>
+            @endif
+
 
             <div class="px-5 py-2">
                 <a href="{{ route('terms') }}"

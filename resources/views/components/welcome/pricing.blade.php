@@ -32,7 +32,7 @@
                                     Monthly
                                 </dt>
                                 <dd
-                                    class="mt-1 flex flex-col justify-center items-baseline md:block lg:flex text-xl font-semibold text-blue-600 dark:text-red-600">
+                                    class="mt-1 flex justify-center items-baseline md:block lg:flex text-xl font-semibold text-blue-600 dark:text-red-600">
                                     <div>
                                         {{ config('settings.currency') == 'EUR' ? '€':'$' }}
                                         {{ config('settings.monthly_price')}}/mo
@@ -47,13 +47,13 @@
                                     Yearly
                                 </dt>
                                 <dd
-                                    class="mt-1 flex flex-col justify-center items-baseline md:block lg:flex text-xl font-semibold text-blue-600 dark:text-red-600">
+                                    class="mt-1 flex justify-center items-baseline md:block lg:flex text-xl font-semibold text-blue-600 dark:text-red-600">
                                     <div>
                                         {{ config('settings.currency') == 'EUR' ? '€':'$' }}
                                         {{ config('services.school.name') == 'dancefloor' ? '14.9':'8.9' }}/mo
-                                        <span class="flex justify-center text-sm text-gray-500">
+                                        <span class="flex justify-center text-xs text-gray-500">
                                             {{ config('settings.currency') == 'EUR' ? '€':'$' }}
-                                            {{ config('settings.yearly_price')}} yearly
+                                            {{ config('settings.yearly_price')}} paid yearly
                                         </span>
                                     </div>
                                 </dd>

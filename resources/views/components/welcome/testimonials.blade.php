@@ -4,7 +4,7 @@
     <div class="max-w-screen-xl mx-auto md:grid md:grid-cols-2 md:px-6 lg:px-8">
         <div class="py-4 px-4 sm:px-6 md:flex md:flex-col md:py-6 md:pl-0 md:pr-10 lg:pr-16">
             <blockquote class="mt-8 md:flex-grow md:flex md:flex-col">
-                <div class="relative text-lg leading-7 font-medium text-white md:flex-grow">
+                <div class="relative text-sm md:text-lg leading-7 font-medium text-white md:flex-grow">
                     <svg class="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-red-800"
                         fill="currentColor" viewBox="0 0 32 32">
                         <path
@@ -19,8 +19,8 @@
                 <footer class="mt-8">
                     <div class="flex">
                         <div class="flex-shrink-0 inline-flex rounded-full border-2 border-white">
-                            <img class="h-12 w-12 rounded-full" src="{{ asset('testimonials/nicole-sommer.jpg')}}"
-                                alt="">
+                            <img class="h-12 w-12 rounded-full"
+                                src="{{ asset('storage/testimonials/nicole-sommer.jpg')}}" alt="">
                         </div>
                         <div class="ml-4">
                             <div class="text-base leading-6 font-medium text-white">Nicole Sommer</div>
@@ -33,7 +33,7 @@
 
         <div class="py-4 px-4 sm:px-6 md:py-6 md:pr-0 md:pl-10 lg:pl-16">
             <blockquote class="mt-8 md:flex-grow md:flex md:flex-col">
-                <div class="relative text-lg leading-7 font-medium text-white md:flex-grow">
+                <div class="relative text-sm md:text-lg leading-7 font-medium text-white md:flex-grow">
                     <svg class="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-red-800"
                         fill="currentColor" viewBox="0 0 32 32">
                         <path
@@ -49,7 +49,7 @@
                     <div class="flex">
                         <div class="flex-shrink-0 inline-flex rounded-full border-2 border-white">
                             <img class="h-12 w-12 rounded-full"
-                                src="{{ asset('testimonials/guillaume-de-toulouse.jpg')}}" alt="">
+                                src="{{ asset('storage/testimonials/guillaume-de-toulouse.jpg')}}" alt="">
                         </div>
                         <div class="ml-4">
                             <div class="text-base leading-6 font-medium text-white">Guillaume Detoulouse</div>
@@ -67,7 +67,7 @@
     <div class="max-w-screen-xl mx-auto md:grid md:grid-cols-2 md:px-6 lg:px-8">
         <div class="py-4 px-4 sm:px-6 md:flex md:flex-col md:py-6 md:pl-0 md:pr-10 lg:pr-16">
             <blockquote class="mt-8 md:flex-grow md:flex md:flex-col">
-                <div class="relative text-lg leading-7 font-medium text-white md:flex-grow">
+                <div class="relative text-sm md:text-lg leading-7 font-medium text-white md:flex-grow">
                     <svg class="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-red-800"
                         fill="currentColor" viewBox="0 0 32 32">
                         <path
@@ -84,8 +84,8 @@
                 <footer class="mt-8">
                     <div class="flex">
                         <div class="flex-shrink-0 inline-flex rounded-full border-2 border-white">
-                            <img class="h-12 w-12 rounded-full" src="{{ asset('testimonials/isabela-bagueros.jpg')}}"
-                                alt="">
+                            <img class="h-12 w-12 rounded-full"
+                                src="{{ asset('storage/testimonials/isabela-bagueros.jpg')}}" alt="">
                         </div>
                         <div class="ml-4">
                             <div class="text-base leading-6 font-medium text-white">Isabela Bagueros</div>
@@ -100,7 +100,7 @@
 
         <div class="py-4 px-4 sm:px-6 md:py-6 md:pr-0 md:pl-10 lg:pl-16">
             <blockquote class="mt-8 md:flex-grow md:flex md:flex-col">
-                <div class="relative text-lg leading-7 font-medium text-white md:flex-grow">
+                <div class="relative text-sm md:text-lg leading-7 font-medium text-white md:flex-grow">
                     <svg class="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-red-800"
                         fill="currentColor" viewBox="0 0 32 32">
                         <path
@@ -116,8 +116,8 @@
                 <footer class="mt-8">
                     <div class="flex">
                         <div class="flex-shrink-0 inline-flex rounded-full border-2 border-white">
-                            <img class="h-12 w-12 rounded-full" src="{{ asset('testimonials/veronique-zeau.jpg')}}"
-                                alt="">
+                            <img class="h-12 w-12 rounded-full"
+                                src="{{ asset('storage/testimonials/veronique-zeau.jpg')}}" alt="">
                         </div>
                         <div class="ml-4">
                             <div class="text-base leading-6 font-medium text-white">Véronique Zéau</div>
