@@ -7,7 +7,7 @@
                 <div>
                     <h1 class="text-4xl font-extrabold sm:text-5xl sm:tracking-tight">
                         <span class="text-gray-900">
-                            {{ config('services.school.name') == 'dancefloor' ? 'All our classes for only':'Everything you need for' }}
+                            {{ config('services.school.name') == 'dancefloor' ? 'Pay monthly or yearly':'Everything you need for' }}
                         </span>
                         <span class="text-blue-600 dark:text-red-600">
                             {{-- {{ config('settings.currency') == 'EUR' ? '€':'$' }} --}}
