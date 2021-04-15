@@ -106,7 +106,14 @@
 
 
         </div>
-        <p class="mt-8 text-center text-base text-gray-400">
+        <p class="mt-8 text-center text-xs text-gray-400">
+            @if (config('services.school.name') == 'dancefloor')
+            Dancefloor Kouadio & Te | Route de Meyrin 5, 1202 Genève | online@dancefloorgva.com | IDE:CHE-411.948.365
+            @else
+
+            @endif
+        </p>
+        <p class="mt-4 text-center text-xs text-gray-400">
             &copy; {{ date('Y')}} {{ config('app.name')}}. All rights reserved.
         </p>
     </div>
