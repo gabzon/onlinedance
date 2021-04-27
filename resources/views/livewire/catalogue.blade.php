@@ -25,9 +25,11 @@
             <select wire:model="type"
                 class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                 <option value="">All types</option>
+                @if (config('services.school.name') != 'dancefloor')
                 <option value="lady-styling">Lady styling</option>
                 <option value="men-styling">Men styling</option>
                 <option value="body-movement">Body movements</option>
+                @endif
                 <option value="partnerwork">Partnerwork</option>
                 <option value="footwork">Footwork</option>
             </select>

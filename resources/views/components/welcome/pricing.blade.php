@@ -20,7 +20,13 @@
                         {{ config('settings.monthly_price') }}
                         a month.
                         </span> --}}
-                        {{ config('services.school.name') == 'dancefloor' ? 'Access all our classes and new videos each month - Learn & Have Fun!':'Includes every feature we offer plus unlimited projects and unlimited users.' }}
+                        @if (config('services.school.name') == 'dancefloor')
+                        Access all our classes and new videos each month - <span
+                            class="text-red-600 font-semibold">Learn & Have
+                            Fun!</span>
+                        @else
+                        Includes every feature we offer plus unlimited projects and unlimited users.
+                        @endif
                     </p>
                 </div>
                 <div>
@@ -47,13 +53,14 @@
                                     Yearly
                                 </dt>
                                 <dd
-                                    class="mt-1 flex justify-center items-baseline md:block lg:flex text-xl font-semibold text-blue-600 dark:text-red-600">
+                                    class="mt-1 flex justify-center items-baseline md:block lg:flex text-xl font-semibold text-blue-600 dark:text-red-600 text-center">
                                     <div>
                                         {{ config('settings.currency') == 'EUR' ? '€':'$' }}
                                         {{ config('services.school.name') == 'dancefloor' ? '14.9':'8.9' }}/mo
                                         <span class="flex justify-center text-xs text-gray-500">
-                                            {{ config('settings.currency') == 'EUR' ? '€':'$' }}
-                                            {{ config('settings.yearly_price')}} paid yearly
+                                            {{-- {{ config('settings.currency') == 'EUR' ? '€':'$' }} --}}
+                                            {{-- {{ config('settings.yearly_price')}} paid yearly --}}
+                                            (billed yearly - save 25%)
                                         </span>
                                     </div>
                                 </dd>
