@@ -40,6 +40,7 @@ class Form extends Component
     {
         $this->validate([
             'title'     => 'required',
+            'duration'  => 'nullable|time',
         ]);
 
         $course = Course::create([
@@ -159,7 +160,7 @@ class Form extends Component
             $this->excerpt  = $course->excerpt;
             $this->content  = $course->content;
             $this->thumbnail= $course->thumbnail;
-            $this->portrait= $course->portrait;
+            $this->portrait = $course->portrait;
             $this->video    = $course->video;
             $this->playlist = $course->playlist;
             $this->level    = $course->level;

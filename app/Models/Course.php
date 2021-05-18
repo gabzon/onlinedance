@@ -46,7 +46,8 @@ class Course extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        'id'        => 'integer',
+        'duration'  => 'string',
     ];
 
     public function styles()

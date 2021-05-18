@@ -115,7 +115,8 @@
                     </div>
                     <div class="inline-flex items-center">
                         @include('icons.clock')
-                        <span class="text-sm ml-2 font-semibold ">{{ rtrim($course->duration,':00') }}</span>
+
+                        <span class="text-sm ml-2 font-semibold ">{{$course->duration}}</span>
                     </div>
                 </div>
             </footer>

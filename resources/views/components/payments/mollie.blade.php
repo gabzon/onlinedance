@@ -76,14 +76,20 @@
                         class="w-full rounded my-10 bg-blue-700 dark:bg-red-700 text-white flex justify-between py-6 px-8">
                         <div>
                             <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-                                <span class="block">Free trail, today you pay</span>
+                                <span class="block">Free 7 days trial</span>
                             </h2>
                             <p class="text-blue-200 text-lg dark:text-red-200">
-                                Pay {{ config('settings.currency') == 'EUR' ? '€':'$' }}<code x-text="price"></code> for
-                                the <code x-text="plan"></code> plan in 7 days
+                                Then pay {{ config('settings.currency') == 'EUR' ? '€':'$' }} <code
+                                    x-text="price"></code> <code x-text="plan"></code>.
+                                <span x-show="plan === 'monthly'">
+                                    Stop whenever you want
+                                </span>
+                                <span x-show="plan === 'yearly'">
+                                    Get a full year access (save 25%)
+                                </span>
                             </p>
                         </div>
-                        <div class="text-2xl font-bold">$0</div>
+                        <div class="text-3xl font-bold">{{ config('settings.currency') == 'EUR' ? '€':'$' }}0</div>
                     </div>
                 </div>
             </fieldset>

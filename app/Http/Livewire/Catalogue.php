@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Course;
 
 class Catalogue extends Component
@@ -10,6 +11,27 @@ class Catalogue extends Component
     public $style;
     public $type;    
     public $courses;
+
+    public function favorite($id)
+    {    
+        Auth::user()->favorites()->attach($id);        
+    }
+
+    public function unfavorite($id)
+    {
+        Auth::user()->favorites()->detach($id); 
+    }
+
+
+    public function todo($id)
+    {    
+        Auth::user()->todos()->attach($id);        
+    }
+
+    public function undo($id)
+    {
+        Auth::user()->todos()->detach($id); 
+    }
 
     public function loadCourses()
     {

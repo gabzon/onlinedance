@@ -37,7 +37,7 @@
         </x-jet-dropdown-link>
 
         <x-jet-dropdown-link href="{{ route('todo') }}">
-            {{ __('Todo') }}
+            {{ __('To Do') }}
         </x-jet-dropdown-link>
 
         <x-jet-dropdown-link href="{{ route('plan') }}">

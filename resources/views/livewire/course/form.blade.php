@@ -141,6 +141,7 @@
                                 <label for="duration" class="block text-sm font-medium text-gray-700">Duration</label>
                                 <input type="time" wire:model="duration"
                                     class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                <p class="text-sm text-gray-500">Format hh:mm:ss</p>
                             </div>
 
                             <div class="col-span-6 sm:col-span-3 lg:col-span-1">

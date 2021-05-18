@@ -16,13 +16,14 @@
                     <x-partials.notifications />
                     @endif
 
-
                     @if (auth()->user()->subscribed('Online classes'))
                     <h3 class="text-lg font-medium text-gray-900">
                         <span
                             class="capitalize">{{ auth()->user()->subscribedToPlan('monthly', 'Online classes') ? 'monthly' : 'yearly' }}</span>
                         plan -
-                        ${{auth()->user()->subscribedToPlan('monthly', 'Online classes') ? '20' : '100' }}
+                        {{ config('settings.currency') == 'EUR' ? '€':'$' }}
+                        {{ auth()->user()->subscribedToPlan('monthly', 'Online classes') ? config('settings.monthly_price')
+                        : config('settings.yearly_price') }}
                     </h3>
 
                     @if (auth()->user()->subscription('Online classes')->onGracePeriod())
@@ -66,7 +67,7 @@
                         </p>
                     </div>
                     <a href="{{ route('subscribe')}}"
-                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-blue-700 dark:hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-red-500">
                         {{ __('Subscribe') }}
                     </a>
                     @endif
