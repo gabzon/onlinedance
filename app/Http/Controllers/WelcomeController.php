@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class WelcomeController extends Controller
 {
     public function index()
-    {
-        return view('welcome');
+    {        
+        return view('welcome')->with('settings', Setting::first());
     }
     
     public function about()
