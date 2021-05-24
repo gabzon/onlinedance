@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
 
-    @if ($pixel)
+    @isset($pixel)
     <!-- Facebook Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
@@ -34,7 +34,7 @@
         &noscript=1" />
     </noscript>
     <!-- End Facebook Pixel Code -->
-    @endif
+    @endisset
 
 
     <!-- Scripts -->
