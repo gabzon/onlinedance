@@ -42,7 +42,7 @@ class Form extends Component
             'title'     => 'required',
             'duration'  => 'nullable|time',
         ]);
-
+        
         $course = Course::create([
             'title'     => $this->title,
             'tagline'   => $this->tagline,
@@ -93,7 +93,7 @@ class Form extends Component
     }
     
     public function edit()
-    {
+    {        
         $this->course->update([
             'title'     => $this->title,
             'slug'      => $this->slug,

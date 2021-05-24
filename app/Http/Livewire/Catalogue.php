@@ -35,7 +35,7 @@ class Catalogue extends Component
 
     public function loadCourses()
     {
-        $this->courses = Course::style($this->style)->level($this->level)->type($this->type)->get();
+        $this->courses = Course::style($this->style)->level($this->level)->type($this->type)->orderBy('order','asc')->get();
     }
 
     public function updatedStyle($value)

@@ -16,7 +16,7 @@
                 <option value="beginner">Beginner</option>
                 <option value="intermediate">Intermediate</option>
                 <option value="advanced">Advanced</option>
-                <option value="pro">Pro</option>
+                {{-- <option value="pro">Pro</option> --}}
             </select>
             {{-- {{ $level }} --}}
         </div>
@@ -29,8 +29,8 @@
                 <option value="lady-styling">Lady styling</option>
                 <option value="men-styling">Men styling</option>
                 <option value="body-movement">Body movements</option>
-                @endif
                 <option value="partnerwork">Partnerwork</option>
+                @endif
                 <option value="footwork">Footwork</option>
             </select>
         </div>

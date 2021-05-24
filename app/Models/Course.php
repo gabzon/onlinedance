@@ -48,6 +48,7 @@ class Course extends Model
     protected $casts = [
         'id'        => 'integer',
         'duration'  => 'string',
+        'order'     => 'integer',
     ];
 
     public function styles()

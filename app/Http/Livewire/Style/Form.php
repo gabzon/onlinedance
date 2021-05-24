@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Style;
 use App\Models\Style;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Str;
 
 class Form extends Component
 {
@@ -69,6 +70,11 @@ class Form extends Component
         ]);
         $this->thumbnailTemp = $this->thumbnail->store('styles');      
         $this->thumbnail = $this->thumbnailTemp;
+    }
+
+    public function updatedName()
+    {
+        $this->slug = Str::slug($this->name, '-');
     }
 
     public function updatedPortrait()
