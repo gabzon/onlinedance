@@ -34,7 +34,7 @@
                         <div class="rounded-md shadow">
                             <a href="{{ route('register') }}"
                                 class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-red-600 dark:hover:bg-red-700  md:py-4 md:text-lg md:px-10">
-                                {{ config('services.school.name') != 'dancefloor' ? 'Get started' : '7 Day Free Trial'}}
+                                {{ config('services.school.name') != 'dancefloor' ? 'Get started' : config('settings.trail_days') . ' Day Free Trial'}}
                             </a>
                         </div>
                     </div>

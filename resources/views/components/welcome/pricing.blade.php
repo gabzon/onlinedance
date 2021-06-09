@@ -71,7 +71,7 @@
                     <div class="flex justify-center mt-6">
                         <a href="{{ route('register') }}"
                             class="mt-8 w-full bg-blue-600 dark:bg-red-600 dark:hover:bg-red-700 border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 sm:mt-10 sm:w-auto xl:mt-0">
-                            {{ config('services.school.name') == 'dancefloor' ? '7 Day Free Trial':'Get started today' }}
+                            {{ config('services.school.name') == 'dancefloor' ? config('settings.trail_days') . ' Day Free Trial':'Get started today' }}
                         </a>
                     </div>
 
@@ -292,7 +292,7 @@
                 <div class="inline-flex rounded-md shadow">
                     <a href="{{ route('register') }}"
                         class="bg-blue-600 dark:bg-red-600 dark:hover:bg-red-700 border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base font-medium text-white hover:bg-blue-700">
-                        {{ config('services.school.name') == 'dancefloor' ? '7 Day Free Trial':'Get started' }}
+                        {{ config('services.school.name') == 'dancefloor' ? config('settings.trail_days') .' Day Free Trial':'Get started' }}
                     </a>
                 </div>
             </div>

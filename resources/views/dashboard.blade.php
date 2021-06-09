@@ -33,6 +33,9 @@
             <div class="py-8">
                 @if (auth()->user()->onTrial('Online classes'))
                 yes
+
+                {{ auth()->user()->trial_ends_at }}
+                {{config('settings.currency')}}
                 @endif
 
                 @if (auth()->user()->subscribed('Online classes'))
