@@ -81,7 +81,7 @@ class User extends Authenticatable implements ProvidesInvoiceInformation, MustVe
 
     public function getIsActiveAttribute()
     {
-        return $this->subscribed('OnlineClass');
+        return $this->subscribed('Online classes');
     }
 
     public function getAgeAttribute()

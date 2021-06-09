@@ -17,12 +17,12 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    {{-- @if (!auth()->user()->subscribed('OnlineClass') && !auth()->user()->hasAccess())
+                    {{-- @if (!auth()->user()->subscribed('Online classes') && !auth()->user()->hasAccess())
                     <x-jet-nav-link href="{{ route('subscribe') }}" :active="request()->routeIs('subscribe')">
                     {{ __('Subscribe') }}
                     </x-jet-nav-link>
                     @endif --}}
-                    {{-- @if (auth()->user()->subscribed('OnlineClass'))
+                    {{-- @if (auth()->user()->subscribed('Online classes'))
                     <x-jet-nav-link href="{{ route('members') }}" :active="request()->routeIs('members')">
                     {{ __('Members') }}
                     </x-jet-nav-link>

@@ -11,21 +11,21 @@ class SubscriptionPlan extends Component
 
     public function cancelSubscription()
     {
-        auth()->user()->subscription('OnlineClass')->cancel();    
+        auth()->user()->subscription('Online classes')->cancel();    
         
         session()->flash('success','Your subscribtion has been cancelled successfully.');    
     }
 
     public function resumeSubscription()
     {
-        auth()->user()->subscription('OnlineClass')->resume();
+        auth()->user()->subscription('Online classes')->resume();
         
         session()->flash('success','Your subscribtion has been resumed successfully.');
     }
 
     public function mount()
     {
-        $this->plan = auth()->user()->subscription('OnlineClass')->stripe_plan;
+        $this->plan = auth()->user()->subscription('Online classes')->stripe_plan;
     }
 
     public function render()

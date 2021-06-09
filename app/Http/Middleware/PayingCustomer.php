@@ -16,7 +16,7 @@ class PayingCustomer
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && ! $request->user()->subscribed('OnlineClass')) {
+        if ($request->user() && ! $request->user()->subscribed('Online classes')) {
             // This user is not a paying customer...
             return redirect('subscribe');
         }

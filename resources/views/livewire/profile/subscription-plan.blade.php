@@ -22,13 +22,13 @@
                     @endphp
 
 
-                    @if (auth()->user()->subscribed('OnlineClass'))
+                    @if (auth()->user()->subscribed('Online classes'))
                     <h3 class="text-lg font-medium text-gray-900">
                         <span class="capitalize">{{ $pricePlan }}ly</span> plan -
                         ${{ $pricePlan == 'month' ? '20 / mo' : '100 / yr' }}
                     </h3>
 
-                    @if (auth()->user()->subscription('OnlineClass')->onGracePeriod())
+                    @if (auth()->user()->subscription('Online classes')->onGracePeriod())
                     <div class="mt-3 max-w-xl text-sm text-gray-600">
                         <p>
                             {{ __('If you change your mind and you want to continue taking advantage of our online classes just click at the button below') }}

@@ -31,6 +31,18 @@
     <div class="py-2">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="py-8">
+                @if (auth()->user()->onTrial('Online classes'))
+                yes
+                @endif
+
+                @if (auth()->user()->subscribed('Online classes'))
+                asdfasdf
+                @endif
+
+
+                {{-- if ($user->subscription('main')->onTrial()) {
+                //
+                } --}}
                 <livewire:catalogue />
             </div>
         </div>

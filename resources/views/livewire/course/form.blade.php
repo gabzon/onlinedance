@@ -142,6 +142,9 @@
                                 <input type="text" wire:model="duration"
                                     class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 <p class="text-sm text-gray-500">Format hh:mm:ss</p>
+                                @error('duration')
+                                <span class="text-sm text-red-600">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-6 sm:col-span-3 lg:col-span-1">

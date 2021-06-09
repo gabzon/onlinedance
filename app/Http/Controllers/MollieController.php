@@ -12,6 +12,7 @@ class MollieController extends Controller
     public function createSubscription(Request $request)
     {
         // dd($request->all());
+        // dd(config('settings.trail_days'));
         $user = auth()->user();
 
         $name = 'Online classes';
@@ -21,7 +22,7 @@ class MollieController extends Controller
         if (!$user->subscribed($name, $plan)) {
 
             $result = $user->newSubscription($name, $plan)
-                ->trialDays(7)
+                ->trialDays(config('settings.trail_days') ?? 7)
                 ->create();
 
             if (is_a($result, RedirectToCheckoutResponse::class)) {

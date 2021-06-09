@@ -40,7 +40,7 @@ class Form extends Component
     {
         $this->validate([
             'title'     => 'required',
-            'duration'  => 'nullable|time',
+            'duration'  => 'nullable|date_format:H:i:s',
         ]);
         
         $course = Course::create([
