@@ -32,7 +32,7 @@
                             <p id="plan-option-limit-0"
                                 :class="{'text-blue-700 dark:text-red-700':monthly, 'text-gray-500':!monthly}"
                                 class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 md:text-right">
-                                7 Days Free trial
+                                {{ config('settings.trail_days') }} Days Free trial
                             </p>
                         </div>
                     </li>

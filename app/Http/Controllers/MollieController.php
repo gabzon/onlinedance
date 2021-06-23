@@ -22,7 +22,7 @@ class MollieController extends Controller
         if (!$user->subscribed($name, $plan)) {
 
             $result = $user->newSubscription($name, $plan)
-                ->trialDays(config('settings.trail_days') ?? 7)
+                // ->trialDays(config('settings.trail_days') ?? 7)
                 ->create();
 
             if (is_a($result, RedirectToCheckoutResponse::class)) {

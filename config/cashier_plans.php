@@ -48,19 +48,19 @@ return [
                  * A string containing the exact amount you want to charge each billing cycle, in the given currency.
                  * Make sure to set the right amount of decimals. Non-string values are not accepted by Mollie.
                  */
-                'value' => config('settings.monthly_price') ?? '20.00',
+                'value' => '2.00',
 
                 /**
                  * An ISO 4217 currency code. The currencies supported depend on the payment methods that are enabled on
                  * your Mollie account.
                  */
-                'currency' => config('settings.currency') ?? 'USD',
+                'currency' => 'EUR',
             ],
 
             /**
              * The length of the billing cycle.
              */
-            'interval' => '1 month',
+            'interval' => '1 day',
 
             /**
              * The text to appear on the invoice.
@@ -88,19 +88,19 @@ return [
                  * A string containing the exact amount you want to charge each billing cycle, in the given currency.
                  * Make sure to set the right amount of decimals. Non-string values are not accepted by Mollie.
                  */
-                'value' => config('settings.yearly_price') ?? '100.00',
+                'value' => '5.00',
 
                 /**
                  * An ISO 4217 currency code. The currencies supported depend on the payment methods that are enabled on
                  * your Mollie account.
                  */
-                'currency' => config('settings.currency') ?? 'USD',
+                'currency' => 'EUR',
             ],
 
             /**
              * The length of the billing cycle.
              */
-            'interval' => '1 year',
+            'interval' => '2 week',
 
             /**
              * The text to appear on the invoice.
