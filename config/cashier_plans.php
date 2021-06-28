@@ -48,7 +48,7 @@ return [
                  * A string containing the exact amount you want to charge each billing cycle, in the given currency.
                  * Make sure to set the right amount of decimals. Non-string values are not accepted by Mollie.
                  */
-                'value' => '2.00',
+                'value' => '1.00',
 
                 /**
                  * An ISO 4217 currency code. The currencies supported depend on the payment methods that are enabled on
@@ -92,7 +92,7 @@ return [
                  * A string containing the exact amount you want to charge each billing cycle, in the given currency.
                  * Make sure to set the right amount of decimals. Non-string values are not accepted by Mollie.
                  */
-                'value' => '5.00',
+                'value' => '2.00',
 
                 /**
                  * An ISO 4217 currency code. The currencies supported depend on the payment methods that are enabled on
