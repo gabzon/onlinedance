@@ -69,19 +69,19 @@ return [
              * A string containing the exact amount you want to charge for the first payment, in the given currency.
              * Make sure to set the right amount of decimals. Non-string values are not accepted by Mollie.
              */
-            'value' => '0',
+            'value' => '0.0',
 
             /**
              * An ISO 4217 currency code. The currencies supported depend on the payment methods that are enabled on
              * your Mollie account.
              */
-            'currency' => config('settings.currency') ?? 'USD',
+            'currency' => 'EUR',
         ],
 
         /**
          * The default description for the first payment, visible on both the invoice and the customer bank records.
          */
-        'description' => 'Received payment from ' . config('app.name'),
+        'description' => 'Received payment from Dancefloor Online' ,
     ],
 
 ];
